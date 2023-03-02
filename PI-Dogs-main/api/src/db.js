@@ -40,9 +40,10 @@ sequelize.models = Object.fromEntries(capsEntries);
 // Para relacionarlos hacemos un destructuring
 const { Dog, Temperaments } = sequelize.models;
 console.log(entries);
-console.log(capsEntries);
-console.log(sequelize.models);
-console.log(Dog, Temperaments);
+// console.log(capsEntries);
+// console.log(sequelize.models);
+// console.log(Dog, Temperaments);
+console.log("---- aqui acaba db.js----");
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
