@@ -1,0 +1,10 @@
+.container{
+    border: blueviolet;
+    contain:content;
+    width: 15rem;
+    height: 15rem    
+}
+.imagen{
+    width: 15rem;
+    height: 12rem;
+}

@@ -1,0 +1,17 @@
+.container{
+    border: blueviolet;
+    contain:content;
+    width: 15rem;
+    height: 30rem;
+    position: absolute;
+    
+}
+.imagen{
+    width: 15rem;
+    height: 12rem;
+    position: absolute;
+}
+
+.text{
+    position: absolute;
+}
