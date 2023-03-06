@@ -1,0 +1,21 @@
+.contenedor{
+    display: inline-flex;
+    border: 5px;
+}
+
+.filters{
+    float: left;
+    top: 0px;
+    width: 25%;
+    height: 35rem;
+    background-color: blue;
+}
+
+.cartas{
+    position: relative;
+    display: inline-flex
+}
+
+.pagi{
+    display:contents;
+}

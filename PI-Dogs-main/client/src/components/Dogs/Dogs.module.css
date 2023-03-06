@@ -1,9 +1,12 @@
 .container{
-    border: blueviolet;
-    contain:content;
-    width: 15rem;
-    height: 15rem    
+    position: relative ;
+    border: 5px;
+    /* width: 20rem; */
+    height: 34rem;
+    max-width: 25%;
+
 }
+
 .imagen{
     width: 15rem;
     height: 12rem;

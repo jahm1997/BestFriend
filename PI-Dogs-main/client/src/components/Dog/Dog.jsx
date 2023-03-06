@@ -1,46 +1,46 @@
-import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
 import style from "./Dog.module.css"
-import { getDog } from "../redux/actions";
+import { useEffect } from "react";
+
+import { Link, useParams } from "react-router-dom";
+
+import {getDog} from "../redux/actions"
+
+import { useDispatch, useSelector } from "react-redux";
+
+function Dog () {
 
 
-const Dog = () => {
-
-    console.log("se ejecutó dog")
+    const dispatch = useDispatch()
    
-   const {id} = useParams()
-    const [dog,setDog] = useState({})
-    
+    const {id} = useParams()
+    const dog = useSelector(state=>state.dog)
+
     useEffect(
         ()=>{
-            fetch(`http://localhost:3001/dogs/${id}`)
-            .then(response=>response.json())
-            .then((char)=>{
-               if(char.id){
-                  setDog(char)
-              }else{
-                  window.alert("No hay personajes con ese ID")
-              }
-            })
-            .catch(
-                err => {window.alert("No hay personajes con ese ID")}
-            )
-            return setDog({})
-        },[id]
-    )
+          dispatch(getDog(id))
+        },[dispatch]
+      )
 
-    return (
-       <div className={style.container}>
-         <button>
-            <Link to="/dogs">Home</Link>
-        </button>
-          <h3>Name: {dog.name}</h3>
-          <h3>Peso: {dog.weight}</h3>
-          <h3>Alto: {dog.height}</h3>
-          <h3>Años de vida : {dog.life_span}</h3>
-          <img className={style.imagen} src={dog.image} alt={dog.name} />
-       </div>
-    );
+    if(dog){
+        return (
+            <div className={style.container}>
+               <h3>Name: {dog.data.name}</h3>
+               <h3>Peso: {dog.data.weight}</h3>
+               <h3>Alto: {dog.data.height}</h3>
+               <h3>Años de vida : {dog.data.life_span}</h3>
+               <h4>temperamentos: {dog.data.temperament}</h4>
+               <img className={style.imagen} src={dog.data.image} alt={dog.data.name} />
+            </div>
+         );
+    }else{
+        return (
+            <div>
+                <h1>
+                    Aun no obtenemos el objeto
+                </h1>
+            </div>
+        )
+    }
 }
 
  export default Dog

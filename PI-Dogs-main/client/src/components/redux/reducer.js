@@ -5,6 +5,7 @@ const inicialState = {
   myDogs: [],
   error: {},
   success: {},
+  dog: {},
 };
 
 const reducer = (state = inicialState, action) => {
@@ -21,6 +22,7 @@ const reducer = (state = inicialState, action) => {
     case GET_DOG:
       return {
         ...state,
+        dog: action.payload,
       };
 
     case SUCCESS_POST:

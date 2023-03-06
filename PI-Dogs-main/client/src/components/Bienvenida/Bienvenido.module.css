@@ -1,0 +1,9 @@
+.imagen{
+    position: relative;
+}
+
+.boton{
+    top: 65%;
+    left: 50%;
+    position:absolute
+}

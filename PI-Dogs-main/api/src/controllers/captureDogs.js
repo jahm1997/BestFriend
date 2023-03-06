@@ -11,6 +11,7 @@ const Dogscapture = (dogs, data) => {
         weight: elemento.weight.metric,
         height: elemento.height.metric,
         life_span: elemento.life_span,
+        temperament: elemento.temperament,
       };
     });
     Dog.bulkCreate(perros.map(t => t));
@@ -25,6 +26,7 @@ const Dogscapture = (dogs, data) => {
         weight: elemento.weight,
         height: elemento.height,
         life_span: elemento.life_span,
+        temperament: elemento.temperament,
       };
     });
     console.log("se trajó info de nuestro database");

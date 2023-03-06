@@ -1,52 +1,72 @@
 import styled from "./Home.module.css"
-import React, { useEffect, useState } from "react";
+
+import React from "react";
+
 import { useDispatch, useSelector } from "react-redux"
 import { getAllDogs } from "../redux/actions"
+
 import Dogs from "../Dogs/Dogs"
+import Pagination from "../pagination/pagination";
 
 function Home() {
   console.log("Se ejecutó Home");
+
   const dispatch = useDispatch()
+
   const dogs = useSelector(state => state.myDogs)
-  useEffect(
-    ()=>{
-      dispatch(getAllDogs())
-    },[dispatch]
-  )
-  // if(dogs.length === 0){
-  //   return(
-  //     dogs[0].map(
-  //       elemento => 
-  //         <Dogs
-  //         key = {elemento.id}
-  //         id = {elemento.id}
-  //         name = {elemento.name}
-  //         image = {elemento.image}
-  //         ></Dogs>
-  //     )
-  //   )
-  // }else{
-  //   return (
-  //     <div  >
-  //      <h1>Loading</h1>
-  //     </div>
-  //   );
-  // }
-  return (
-    <div className={styled.contenedor} >
-      {
-        dogs.length !== 0? dogs[0].map(
-                elemento => 
-                  <Dogs
-                  key = {elemento.id}
-                  id = {elemento.id}
-                  name = {elemento.name}
-                  image = {elemento.image}
-                  ></Dogs>): <h1>Loading</h1>
-      }
-    </div>
-  )
-  
+  const [inicio,setInicio] = React.useState(1)
+  const [perrosEnPantalla] = React.useState(8)
+
+  React.useEffect(
+      ()=>{
+        dispatch(getAllDogs())
+      },[dispatch]
+    )
+
+    const paginate = pagina => setInicio(pagina)
+    
+    
+    
+    if(!dogs.length){
+    return(
+      <div>
+        <h1>Loading</h1>
+      </div>)
+  }else{
+
+    const final = inicio * perrosEnPantalla
+    const comienzo = final - perrosEnPantalla
+    var current = dogs[0].slice(comienzo,final)
+
+    return (
+      <div className={styled.contenedor} >
+        <div className={styled.filters}>
+          filtros y paginación
+        </div>
+
+        <div>
+          <div className={styled.cartas} >
+            {current.map(
+              elemento => 
+              <Dogs
+              key = {elemento.id}
+              id = {elemento.id}
+              name = {elemento.name}
+              image = {elemento.image}
+              weight = {elemento.weight}
+              height = {elemento.height}
+              life_span = {elemento.life_span}
+              temperament = {elemento.temperament}
+              ></Dogs>)
+            }
+          </div>
+
+          <div className={styled.pagi} >
+            <Pagination perrosEnPantalla={perrosEnPantalla}  totalPerros = {dogs[0].length} paginate = {paginate} />
+          </div>
+        </div>
+      </div>)
+  }
 }
 
-export default Home;
+export default Home
