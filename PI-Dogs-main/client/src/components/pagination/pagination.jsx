@@ -8,17 +8,17 @@ const Pagination = ({ totalPerros, perrosEnPantalla, paginate }) => {
     numeroPaginas.push(i);
   }
   return (
-    <nav className={styled.list}>
+    <div className={styled.list}>
       <ul>
         {numeroPaginas.map(number => (
           <li key={number}>
-            <button onClick={() => paginate(number)} href="">
+            <a onClick={() => paginate(number)} href="#">
               {number}
-            </button>
+            </a>
           </li>
         ))}
       </ul>
-    </nav>
+    </div>
   );
 };
 

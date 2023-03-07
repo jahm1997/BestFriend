@@ -1,10 +1,18 @@
 .container{
     position: relative ;
     border: 5px;
-    /* width: 20rem; */
-    height: 34rem;
-    max-width: 25%;
+    height: 25rem;
+    line-height: 120%;
+    margin: 0.5rem;
 
+}
+
+.container h3{
+    margin: 0.5rem;
+}
+
+.container h4{
+    margin: 0.5rem;
 }
 
 .imagen{

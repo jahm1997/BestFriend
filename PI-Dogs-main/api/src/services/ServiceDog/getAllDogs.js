@@ -11,11 +11,13 @@ const todos = async (req, res) => {
   const dataApi = perros.data;
 
   const dogs = await Dog.findAll();
+
   try {
     if (name) {
       const dataBase_iff = captureRaza(dogs, dataApi, name);
       res.status(200).send(dataBase_iff);
     } else {
+      console.log(dogs);
       const dataBase = captureDogs(dogs, dataApi);
       res.status(200).send(dataBase);
     }

@@ -8,11 +8,11 @@ const Dogs = (props) => {
          <Link to={`/dogs/${props.id}`} >
             <h3>Name: {props.name}</h3>
          </Link>
-         <h3>Peso: {props.weight}</h3>
-         <h3>Alto: {props.height}</h3>
-         <h3>Años de vida : {props.life_span}</h3>
-         <h3>Temperamentos : {props.temperament}</h3>
-       </div>
+         <h4>Peso: {props.weight} Kilogramos</h4>
+         <h4>Alto: {props.height} Centimetros</h4>
+         <h4>Años de vida : {props.life_span}</h4>
+         <h4>Temperamentos : {props.temperament}</h4>
+      </div>
     );
 }
 

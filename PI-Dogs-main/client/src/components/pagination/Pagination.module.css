@@ -1,5 +1,7 @@
 .list{
-    background-color: black;
+    display:flex;
+    justify-content: center;
+    align-items:center;
 }
 
 .list ul{
@@ -9,16 +11,25 @@
     width: auto;
     height:0
     
+    
 }
 
 .list ul li{
     display:inline-flex;
+    justify-content: center;
     text-decoration: none;
-    color: black;
-    padding:2px
+}
+
+.list ul li a{
+    padding: 8px;
 }
 
 .list ul li:hover {
-    background-color: aquamarine;
+    background-color: rgb(9, 78, 156);
+    color: white;
+}
+
+.list ul li a:hover{
+    color: white;
     
 }

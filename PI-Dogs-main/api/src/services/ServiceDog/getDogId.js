@@ -5,7 +5,9 @@ const url = "http://localhost:3001/dogs"; // param.id = 2
 
 const getDogById = async (req, res) => {
   console.log("-----Se ejecutó getDogId.js------");
+
   const id = Number(req.params.id);
+
   const response = await axios.get(url);
   try {
     let objetivoPerruno = findById(response.data, id);

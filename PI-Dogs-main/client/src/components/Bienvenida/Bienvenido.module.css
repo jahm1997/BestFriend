@@ -1,9 +1,28 @@
-.imagen{
-    position: relative;
+.divImagen{
+    background-image: url("../../bienvenido3.jpeg") ;
+    /* height: 781px; seria en imagen grande */
+    height: 649px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
-.boton{
-    top: 65%;
-    left: 50%;
-    position:absolute
+.divboton{
+    top: 21.5rem;
+    left: 35%;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    position:absolute;
+    
 }
+
+.imgBoton{
+    padding: 0;
+    border: 0;
+    margin: 0;
+    width: 55%;
+} 
+
+

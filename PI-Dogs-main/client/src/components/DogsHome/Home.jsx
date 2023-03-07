@@ -40,32 +40,31 @@ function Home() {
 
     return (
       <div className={styled.contenedor} >
-        <div className={styled.filters}>
+        <div className={styled.filters} c1>
           filtros y paginación
         </div>
 
-        <div>
-          <div className={styled.cartas} >
-            {current.map(
-              elemento => 
-              <Dogs
-              key = {elemento.id}
-              id = {elemento.id}
-              name = {elemento.name}
-              image = {elemento.image}
-              weight = {elemento.weight}
-              height = {elemento.height}
-              life_span = {elemento.life_span}
-              temperament = {elemento.temperament}
-              ></Dogs>)
-            }
-          </div>
-
-          <div className={styled.pagi} >
-            <Pagination perrosEnPantalla={perrosEnPantalla}  totalPerros = {dogs[0].length} paginate = {paginate} />
-          </div>
+        <div className={styled.cartas}  c2>
+          {current.map(
+            elemento => 
+            <Dogs 
+            key = {elemento.id}
+            id = {elemento.id}
+            name = {elemento.name}
+            image = {elemento.image}
+            weight = {elemento.weight}
+            height = {elemento.height}
+            life_span = {elemento.life_span}
+            temperament = {elemento.temperament}
+            ></Dogs>)
+          }
         </div>
-      </div>)
+
+        <div className={styled.pagi} c3>
+          <Pagination perrosEnPantalla={perrosEnPantalla}  totalPerros = {dogs[0].length} paginate = {paginate} />
+        </div>
+      </div>
+    )
   }
 }
 
