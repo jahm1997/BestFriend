@@ -1,8 +1,23 @@
-.menulu{
+.menu{
+    height: 20px;
+    /* border: 10px solid pink; */
+    padding: 0;
+    margin: 0;
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
+    align-items:flex-start;
+    font-size: large;
+    margin-top: 10px;
 }
+
+.logo h4{
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
 
 
 

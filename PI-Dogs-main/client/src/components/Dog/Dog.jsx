@@ -1,12 +1,12 @@
 import style from "./Dog.module.css"
-import cargando from "../../cargando2.jpg"
+
+import cargando from "../imagenes/cargando2.jpg"
 
 import { useEffect } from "react";
 
 import { useParams } from "react-router-dom";
 
 import {getDog} from "../redux/actions"
-
 import { useDispatch, useSelector } from "react-redux";
 
 function Dog () {

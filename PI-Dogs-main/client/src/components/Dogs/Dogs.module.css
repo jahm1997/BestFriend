@@ -1,10 +1,22 @@
 .container{
+    /* background-image: url("../../prueba3.jpeg"); */
     position: relative ;
-    border: 5px;
+    /* border: 5px solid; */
+    /* border-color: #e0b455; */
+    text-align: center;
+    width: 270px;
+    border-radius: 5%;
+    
     height: 25rem;
     line-height: 120%;
-    margin: 0.5rem;
-
+    margin: 5% 5%;
+}
+.container:hover{
+    -webkit-transform:scale(1.07);
+    -moz-transform:scale(1.07);
+    -ms-transform:scale(1.07);
+    -o-transform:scale(1.07);
+    transform:scale(1.07);
 }
 
 .container h3{
@@ -15,7 +27,10 @@
     margin: 0.5rem;
 }
 
-.imagen{
-    width: 15rem;
-    height: 12rem;
+.imagen{   
+    width: 260px;
+    height: 172px;
+    border-radius: 5%;
 }
+
+

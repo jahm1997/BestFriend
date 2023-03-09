@@ -4,31 +4,22 @@ const Navbar = () => {
   
   return (
     <div className={style.menu} >
-        <ul className={style.menulu}>
-          <div>
-            <li>
-            <h4 >"BestFriend"</h4>
-          </li>
+          <div className={style.logo} >
+              <h4 >"BestFriend"</h4>
           </div>
           
           <div>
-           <li className={style.l2}>
-            <a href="/">Inicio</a>
-          </li> 
+              <a href="/">Inicio</a>
           </div>
           
           <div>
-            <li>
-            <a href="/dogs">Home</a>
-          </li>
+              <a href="/dogs">Home</a>
           </div>
+
           <div>
-          <li>
-            <a href="/dogs/add">Create Dog</a>
-            {/* <Link to="/dogs/add">Create Dog</Link> */}
-          </li>
+              <a href="/dogs/add">Create Dog</a>
+              {/* <Link to="/dogs/add">Create Dog</Link> */}
           </div>
-        </ul>
     </div>
   );
 };

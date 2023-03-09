@@ -32,20 +32,26 @@ export const filterCards = (valor, propiedad) => async dispatch => {
     if (propiedad === "") {
       return dispatch({ type: FILTER, payload: response.data });
     } else {
-      if (propiedad !== "temperament") {
-        const temp = response.data.filter(dog =>
-          dog[propiedad].includes(valor)
-        );
-        return dispatch({ type: FILTER, payload: temp });
-      } else {
-        console.log(propiedad);
-        const filter = response.data.map(dog => {
-          return dog[propiedad].toLowerCase().includes(valor);
-        });
-        console.log("--------------------------------");
-        console.log(filter);
-        return dispatch({ type: FILTER, payload: filter });
+      // if (propiedad !== "temperament") {
+      //   const temp = response.data.filter(dog =>
+      //     dog[propiedad].includes(valor)
+      //   );
+      //   return dispatch({ type: FILTER, payload: temp });
+      // } else {
+      const filter = response.data.map(dog => {
+        return dog[propiedad].toLowerCase().includes(valor);
+      });
+      console.log("--------------------------------");
+      if (filter.length) {
+        for (let i = 0; i < filter.length; i++) {
+          if (filter[i] !== true) {
+            alert("La raza no fue encontrada");
+            return dispatch({ type: FILTER, payload: response.data });
+          }
+        }
       }
+      return dispatch({ type: FILTER, payload: filter });
+      // }
     }
   } catch (error) {
     return dispatch({ type: ERROR, payload: error });

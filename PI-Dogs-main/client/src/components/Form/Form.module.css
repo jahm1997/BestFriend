@@ -1,17 +1,70 @@
 .divContenedor{
     box-sizing: border-box;
     height: 1000px;
-    background-image: url("../../prueba3.jpeg");
+    background-image: url("../imagenes/prueba3.jpeg");
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     margin: 0;
     padding: 0;    
+
+    display:grid;
+    grid-template-columns: 900px auto;
+    grid-template-rows: 90px auto;
 }
 
-.divNav{
-    margin: 0;
+.menu{
+    grid-column: 1/3;
+    grid-row: 1/2;
+
+    margin-top: 20px;
     padding: 0;
     box-sizing: border-box;
+    /* border: 5px solid red; */
+    height: 70px;
+}
+
+.videito{
+    grid-row: 2/3;
+    grid-column: 1/2;
+
+    top: 60%;
+    left: 50%;
+    /* border: 5px solid blue;     */
+}
+
+.videito div{
+    margin-left: 5%;
+    margin-top:5%
+}
+
+.formularioExt{
+    grid-column: 2/3;
+    grid-row: 2/3;
+
+    /* border: 5px solid black */
+    position:relative;
+    
+}
+
+.formularioint{
+    text-align: center;
+    width: 200px;
+    /* border: 5px solid red; */
+    margin-top:10%;
+    margin-left: 10%;
+    display: relative;
+    font-size: larger;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+
+.botonRegistrar{
+    background-image: url("../imagenes/botonhuesitos.png") ;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 200px;
+    height: 100px;
+    transform: rotate(8deg);
 }

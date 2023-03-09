@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 const Dogs = (props) => {
    return (
       <div className={style.container}>
+         <br />
          <img className={style.imagen} src={props.image} alt={props.name} />
          <Link to={`/dogs/${props.id}`} >
             <h3>Name: {props.name}</h3>

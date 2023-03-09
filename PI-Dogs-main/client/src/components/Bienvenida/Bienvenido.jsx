@@ -1,7 +1,7 @@
 import styled from "./Bienvenido.module.css"
 import { Link } from "react-router-dom"
 
-import Boton from "../../BotonPerrito.jpeg"
+import Boton from "../imagenes/BotonPerrito.jpeg"
 
 const Bienvenido = () => {
 return (

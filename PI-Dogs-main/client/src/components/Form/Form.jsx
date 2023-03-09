@@ -1,15 +1,15 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import Navbar from "../Navbar/Navbar";
 import style from "./Form.module.css";
 import validateForm from "./validateForm"
-import { useDispatch } from "react-redux";
 import { postdog } from "../redux/actions";
-import Navbar from "../Navbar/Navbar";
+import { useNavigate } from "react-router-dom";
+
+import video from "../videos/videoPerritos.mp4"
 
 const Form = () => {
   console.log("Se ejecutó Form");
   const traslado = useNavigate()
-  const dispatch = useDispatch()
   
   const [dog,setDog] = useState({
     name:"",
@@ -53,39 +53,55 @@ const Form = () => {
 
 return(
   <div className={style.divContenedor} >
-    <div className={style.divNav} >
+
+    <div className={style.menu} >
       <Navbar/>
     </div>
 
-    <form  onSubmit={handleSubmit} >
-      <label htmlFor="name"> Nombre </label>
-      <input type="text" name="name" placeholder="ingrese el nombre" value={dog.name} onChange={handleInputChange}  />
-      {/* // en este espacio colocamos los errores que lanza si no se introduce username correcto */}
-      {errors.name && <p className={style.error}> {errors.name}</p>}
-      <br />
-      <br />
+    <div className={style.videito}>
+      <div>
+        <video width="800px" controls autoPlay loop >
+          <source src={video} type="video/mp4" />
+        </video>
+      </div>
+    </div>
 
-      <label htmlFor="weight"> Peso </label>
-      <input type="text" name="weight" placeholder="ingrese peso del perro" value={dog.weight} onChange={handleInputChange}  />
-      {errors.weight && <p className={style.error}> {errors.weight}</p>}
-      <br />
-      <br />
-      
-      <label htmlFor="height"> Altura </label>
-      <input type="text" name="height" placeholder="ingrese altura del perro" value={dog.height} onChange={handleInputChange}  />
-      {errors.height && <p className={style.error}> {errors.height}</p>}
-      <br />
-      <br />
-      
-      <label htmlFor="life_span"> Años de vida </label>
-      <input type="text" name="life_span" placeholder="años de vida" value={dog.life_span} onChange={handleInputChange}  />
-      {errors.life_span && <p className={style.error}> {errors.life_span}</p>}
-      <br />
-      <br />
+    <div className={style.formularioExt}>
+      <div className={style.formularioint} >
+      <form  onSubmit={handleSubmit} >
+        <label htmlFor="name"> Nombre </label>
+        <input type="text" name="name" placeholder="ingrese el nombre" value={dog.name} onChange={handleInputChange}  />
+        {/* // en este espacio colocamos los errores que lanza si no se introduce username correcto */}
+        {errors.name && <p className={style.error}> {errors.name}</p>}
+        <br />
+        <br />
 
-      <button type="submit" >Registrar</button>
-
-    </form>
+        <label htmlFor="weight"> Peso </label>
+        <input type="text" name="weight" placeholder="ingrese peso del perro" value={dog.weight} onChange={handleInputChange}  />
+        {errors.weight && <p className={style.error}> {errors.weight}</p>}
+        <br />
+        <br />
+        
+        <label htmlFor="height"> Altura </label>
+        <input type="text" name="height" placeholder="ingrese altura del perro" value={dog.height} onChange={handleInputChange}  />
+        {errors.height && <p className={style.error}> {errors.height}</p>}
+        <br />
+        <br />
+        
+        <label htmlFor="life_span"  > Años de vida </label>
+        <input type="text" name="life_span" placeholder="años de vida" value={dog.life_span} onChange={handleInputChange}  />
+        {errors.life_span && <p className={style.error}> {errors.life_span}</p>}
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        
+        <button type="submit" className={style.botonRegistrar} >Registrar</button>
+      </form>
+      </div>
+    </div>
   </div>
 )
 };

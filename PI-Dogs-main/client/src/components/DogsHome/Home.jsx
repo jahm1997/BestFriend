@@ -7,7 +7,7 @@ import { getAllDogs, filterCards } from "../redux/actions"
 
 import Dogs from "../Dogs/Dogs"
 import Pagination from "../pagination/pagination";
-import cargando from "../../cargando2.jpg"
+import cargando from "../imagenes/cargando2.jpg"
 import Navbar from "../Navbar/Navbar";
 
 function Home() {
@@ -43,8 +43,11 @@ function Home() {
   const limpiar = () =>{
     dispatch(getAllDogs())
   }
-  
+
+  const ultimaPagina = Math.ceil(dogs.length/perrosEnPantalla)
+  const delante = () => inicio  ===  ultimaPagina ? setInicio(inicio): setInicio(inicio+1)
   const paginate = pagina => setInicio(pagina)
+  const atras = () => inicio === 1? setInicio(inicio):setInicio(inicio-1)
 
   React.useEffect(
     ()=>{
@@ -105,7 +108,7 @@ function Home() {
         </div>
 
         <div className={styled.pagi} >
-          <Pagination perrosEnPantalla={perrosEnPantalla}  totalPerros = {dogs.length} paginate = {paginate} />
+          <Pagination perrosEnPantalla={perrosEnPantalla} totalPerros = {dogs.length} delante = {delante} atras = {atras} paginate = {paginate} />
         </div>
       </div>
     )

@@ -1,5 +1,5 @@
 .divImagen{
-    background-image: url("../../bienvenido.jpeg") ;
+    background-image: url("../imagenes/bienvenido.jpeg") ;
     /* height: 781px; seria en imagen grande */
     height: 1000px;
     /* background-position: center center;
