@@ -1,7 +1,9 @@
 import style from "./Dog.module.css"
+import cargando from "../../cargando2.jpg"
+
 import { useEffect } from "react";
 
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import {getDog} from "../redux/actions"
 
@@ -13,33 +15,33 @@ function Dog () {
     const dispatch = useDispatch()
    
     const {id} = useParams()
-    const dog = useSelector(state=>state.dog)
-
+    const perro = useSelector(state=>state.dog)
+    const dog = perro[0]
+    console.log(dog)
     useEffect(
         ()=>{
           dispatch(getDog(id))
+
         },[dispatch]
       )
-
-    if(dog){
+      
+    if(!perro.length){
         return (
-            <div className={style.container}>
-               <h3>Name: {dog.data.name}</h3>
-               <h3>Peso: {dog.data.weight}</h3>
-               <h3>Alto: {dog.data.height}</h3>
-               <h3>Años de vida : {dog.data.life_span}</h3>
-               <h4>temperamentos: {dog.data.temperament}</h4>
-               <img className={style.imagen} src={dog.data.image} alt={dog.data.name} />
-            </div>
-         );
-    }else{
-        return (
-            <div>
-                <h1>
-                    Aun no obtenemos el objeto
-                </h1>
+            <div className={style.cargandoDiv}>
+                <img className={style.cargando} src={cargando} alt="CargandoPagina" />
             </div>
         )
+    }else{
+        return (
+            <div className={style.container}>
+               <h3>Name: {dog.name}</h3>
+               <h3>Peso: {dog.weight}</h3>
+               <h3>Alto: {dog.height}</h3>
+               <h3>Años de vida : {dog.life_span}</h3>
+               <h4>temperamentos: {dog.temperament}</h4>
+               <img className={style.imagen} src={dog.image} alt={dog.name} />
+            </div>
+        );
     }
 }
 

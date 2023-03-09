@@ -1,0 +1,17 @@
+.divContenedor{
+    box-sizing: border-box;
+    height: 1000px;
+    background-image: url("../../prueba3.jpeg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;    
+}
+
+.divNav{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

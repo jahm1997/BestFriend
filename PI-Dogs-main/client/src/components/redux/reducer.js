@@ -1,11 +1,10 @@
 import { ERROR } from "./actions";
-import { GET_ALL_DOGS, GET_DOG, SUCCESS_POST } from "./actions-types";
+import { GET_ALL_DOGS, GET_DOG, ORDER, FILTER } from "./actions-types";
 
 const inicialState = {
   myDogs: [],
   error: {},
-  success: {},
-  dog: {},
+  dog: [],
 };
 
 const reducer = (state = inicialState, action) => {
@@ -16,19 +15,31 @@ const reducer = (state = inicialState, action) => {
     case GET_ALL_DOGS:
       return {
         ...state,
-        myDogs: [...state.myDogs, action.payload],
+        myDogs: action.payload,
       };
 
     case GET_DOG:
       return {
         ...state,
-        dog: action.payload,
+        dog: [...state.dog, action.payload],
       };
 
-    case SUCCESS_POST:
+    case FILTER:
+      // const filtroDogs = state.myDogs.filter(dog =>
+      //   dog[action.payload.propiedad].includes(action.payload.valor)
+      // );
       return {
         ...state,
-        success: action.payload,
+        myDogs: action.payload,
+      };
+
+    case ORDER:
+      return {
+        ...state,
+        myDogs:
+          action.payload === "Ascendente"
+            ? state.myDogs.sort((a, b) => a.id - b.id)
+            : state.myDogs.sort((a, b) => b.id - a.id),
       };
 
     case ERROR:
@@ -43,24 +54,6 @@ const reducer = (state = inicialState, action) => {
     //     myFavorites: state.myFavorites.filter(
     //       char => char.id !== action.payload
     //     ),
-    //   };
-
-    // case FILTER:
-    //   const filtroCharacters = state.allCharacters.filter(char =>
-    //     char.gender === action.payload ? char.gender : state.allCharacters
-    //   );
-    //   return {
-    //     ...state,
-    //     myFavorites: filtroCharacters,
-    //   };
-
-    // case ORDER:
-    //   return {
-    //     ...state,
-    //     myFavorites:
-    //       action.payload === "Ascendente"
-    //         ? state.allCharacters.sort((a, b) => a.id - b.id)
-    //         : state.allCharacters.sort((a, b) => b.id - a.id),
     //   };
 
     default:

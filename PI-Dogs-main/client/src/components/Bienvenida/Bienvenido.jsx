@@ -1,18 +1,16 @@
 import styled from "./Bienvenido.module.css"
 import { Link } from "react-router-dom"
 
-import boton from "../../botonPerrito.jpeg"
+import Boton from "../../BotonPerrito.jpeg"
 
 const Bienvenido = () => {
 return (
     <div className={styled.divImagen}> 
-
-        <div className={styled.divboton} >
+            <div className={styled.divBoton} >
             <Link to={"/dogs"} >
-                <img  className={styled.imgBoton} src={boton} alt={boton} />
+                    <img  className={styled.img} src={Boton} alt="Boton Bienvenido" />
             </Link>
-        </div>
-        
+            </div>
     </div>
 )
 }

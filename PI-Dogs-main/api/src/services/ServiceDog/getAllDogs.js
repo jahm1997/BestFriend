@@ -17,7 +17,6 @@ const todos = async (req, res) => {
       const dataBase_iff = captureRaza(dogs, dataApi, name);
       res.status(200).send(dataBase_iff);
     } else {
-      console.log(dogs);
       const dataBase = captureDogs(dogs, dataApi);
       res.status(200).send(dataBase);
     }

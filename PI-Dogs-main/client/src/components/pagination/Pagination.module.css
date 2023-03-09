@@ -22,6 +22,7 @@
 
 .list ul li a{
     padding: 8px;
+    background-image: url("../../botonhuesitos.png");
 }
 
 .list ul li:hover {
