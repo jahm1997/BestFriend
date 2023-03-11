@@ -47,8 +47,8 @@ export const filterCards = (valor, propiedad) => async dispatch => {
   }
 };
 
-export const orderCards = (string, orden) => dispatch => {
-  return dispatch({ type: ORDER, payload: { string, orden } });
+export const orderCards = string => dispatch => {
+  return dispatch({ type: ORDER, payload: string });
 };
 
 // };

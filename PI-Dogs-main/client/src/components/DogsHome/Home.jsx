@@ -80,13 +80,13 @@ function Home() {
         </div>
         <div className={styled.filters} >
           <div>
-          <select onChange={handleOrder}>
+          {/* <select onChange={handleOrder}>
               <option value="name" defaultChecked >aA - zZ</option>
               <option value="weight">weight</option>
               <option value="height">height</option>
               <option value="life_span">Promedio de vida</option>
               <option value="temperament">temperamentos</option>
-            </select>
+            </select> */}
             <select onChange={handleOrder}>
               <option value="default"  >Default</option>
               <option value="ascendente">Ascendente</option>

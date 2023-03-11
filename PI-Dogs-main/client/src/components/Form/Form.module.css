@@ -25,18 +25,32 @@
     height: 70px;
 }
 
-.videito{
+.botonPerrito{
+    margin-left: 5%;
+    position: absolute;
+    top: 90px;
+    
+}
+
+.videoext{
     grid-row: 2/3;
     grid-column: 1/2;
-
-    top: 60%;
-    left: 50%;
+    
+    position: relative;
+    top: 1px;
+    /* left: 50%; */
     /* border: 5px solid blue;     */
 }
 
-.videito div{
-    margin-left: 5%;
-    margin-top:5%
+.videoint{
+    left: 500px;
+    transform: translate(0%, -18.5%);
+    z-index: 10000;
+    top:300px;
+    border: 2px solid;
+    margin: 0;
+    padding: 0;
+    height: 449px;
 }
 
 .formularioExt{
@@ -45,23 +59,60 @@
 
     /* border: 5px solid black */
     /* border: 5px solid red; */
-    display:flex;
-    align-items: start;
-    
+    position: absolute;
+    top: 12%;
+    left: 65%;
+    transform: translate(-50%, -50%);
 }
 
 .formularioint{
     /* border: 1px solid red; */
-    text-align:center;
-    width: 400px;
     /* border: 5px solid red; */
+    /* align-items: center; */
+
+    /* text-align:center;
+    width: 400px;
     margin-top:10%;
     margin-left:0;
     display: relative;
-    /* align-items: center; */
     font-size: larger;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
 
+    height: 580px;
+    position: absolute;
+    padding: 30px 65px 10px 60px;
+    z-index: 1000;
+    background-color: white;
+    border: 2px solid red;
+    border-radius: 10px;
+
+
+}
+
+label{
+    margin-top: 5px;
+    margin-bottom: 0.2rem;
+    display: block;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+}
+
+.input{
+    display:block;
+    border: 3px solid blue;
+    padding: 6px 50px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+
+}
+input[type="url"]{
+    width: 100%;
+    font-size: 1rem;
+    padding: 0,5rem  0;
+    margin-top: 0,7rem;
+    background-color: blue;
+    border:none;
+    color:white;
 }
 
 .botonRegistrar{
@@ -72,9 +123,11 @@
     background-repeat: no-repeat;
     width: 200px;
     height: 100px;
-    margin-top: 50px;
+
+    margin-top: 10px;
     border: 0;
     transform: rotate(345deg);
+    
 }
 
 @media (prefers-reduced-motion: no-preference) {

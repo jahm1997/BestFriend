@@ -40,14 +40,18 @@ function Dog () {
                 </div>
 
                 <div className={style.container}>
-                    <h3>Name: {dog.name}</h3>
-                    <h3>Peso: {dog.weight}</h3>
-                    <h3>Alto: {dog.height}</h3>
-                    <h3>Años de vida : {dog.life_span}</h3>
-                    <h4>temperamentos: {dog.temperament}</h4>
+                    <div className={style.containerInt} >
+                        <h3>Name: {dog.name}</h3>
+                        <h3>Peso: {dog.weight}</h3>
+                        <h3>Alto: {dog.height}</h3>
+                        <h3>Años de vida : {dog.life_span}</h3>
+                        <h3>temperamentos: {dog.temperament}</h3>
+                    </div>
                 </div> 
-                <div className={style.containerImg}>
-                    <img className={style.imagen} src={dog.image} alt={dog.name} />
+                <div className={style.containerImg} > 
+                    <div >
+                        <img className={style.imagen} src={dog.image} alt={dog.name} />
+                    </div>
                 </div>
             </div>
         );
