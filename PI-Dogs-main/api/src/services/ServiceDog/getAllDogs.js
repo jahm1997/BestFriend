@@ -5,7 +5,6 @@ const captureDogs = require("../../controllers/captureDogs");
 const todos = async (req, res) => {
   console.log("-----Se ejecutó getAllDogs.js------");
   const { name } = req.query;
-  const { id } = req.params;
 
   const perros = await axios.get("https://api.thedogapi.com/v1/breeds");
   const dataApi = perros.data;

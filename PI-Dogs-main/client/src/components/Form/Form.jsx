@@ -69,58 +69,63 @@ return(
 
     <div className={style.formularioExt}>
       <div className={style.formularioint} >
-      <form  onSubmit={handleSubmit} >
-        <label htmlFor="name"> Nombre </label>
-        <input type="text" name="name" placeholder="ingrese el nombre" value={dog.name} onChange={handleInputChange}  />
-        {/* // en este espacio colocamos los errores que lanza si no se introduce username correcto */}
-        {errors.name && <p className={style.error}> {errors.name}</p>}
-        <br />
-        <br />
+        <form  onSubmit={handleSubmit} >
 
-        <label htmlFor="weightUno"> Peso Minimo</label>
-        <input type="text" name="weightUno" placeholder="ingrese peso del perro" value={dog.weightUno} onChange={handleInputChange}  />
-        {errors.weightUno && <p className={style.error}> {errors.weightUno}</p>}
-        <br />
-        <br />
+        <div>
+          <label htmlFor="name"> Nombre </label>
+          <input type="text" name="name" placeholder="ingrese el nombre" value={dog.name} onChange={handleInputChange}  />
+          {/* // en este espacio colocamos los errores que lanza si no se introduce username correcto */}
+          {errors.name && <p className={style.error}> {errors.name}</p>}
+        </div>
 
-        <label htmlFor="weightDos"> Peso Maximo</label>
-        <input type="text" name="weightDos" placeholder="ingrese peso del perro" value={dog.weightDos} onChange={handleInputChange}  />
-        {errors.weightDos && <p className={style.error}> {errors.weightDos}</p>}
-        <br />
-        <br />
-        
-        <label htmlFor="heightUno"> Altura maxima </label>
-        <input type="text" name="heightUno" placeholder="ingrese altura del perro" value={dog.heightUno} onChange={handleInputChange}  />
-        {errors.heightUno && <p className={style.error}> {errors.heightUno}</p>}
-        <br />
-        <br />
+          <div>
+            <label htmlFor="weightUno"> Peso Minimo</label>
+            <input type="text" name="weightUno" placeholder="ingrese peso del perro" value={dog.weightUno} onChange={handleInputChange}  />
+            {errors.weightUno && <p className={style.error}> {errors.weightUno}</p>}
+            
+          </div>
 
-        <label htmlFor="heightDos"> Altura minima </label>
-        <input type="text" name="heightDos" placeholder="ingrese altura del perro" value={dog.heightDos} onChange={handleInputChange}  />
-        {errors.heightDos && <p className={style.error}> {errors.heightDos}</p>}
-        <br />
-        <br />
-        
-        <label htmlFor="life_span"  > Años de vida </label>
-        <input type="text" name="life_span" placeholder="años de vida" value={dog.life_span} onChange={handleInputChange}  />
-        {errors.life_span && <p className={style.error}> {errors.life_span}</p>}
-        <br />
-        <br />
+          <div>
+            <label htmlFor="weightDos"> Peso Maximo</label>
+            <input type="text" name="weightDos" placeholder="ingrese peso del perro" value={dog.weightDos} onChange={handleInputChange}  />
+            {errors.weightDos && <p className={style.error}> {errors.weightDos}</p>}
+          </div>
+          
+          <div>
+            <label htmlFor="heightUno"> Altura maxima </label>
+            <input type="text" name="heightUno" placeholder="ingrese altura del perro" value={dog.heightUno} onChange={handleInputChange}  />
+            {errors.heightUno && <p className={style.error}> {errors.heightUno}</p>}
+          </div>
 
-        <label htmlFor="temperament"> temperamentos </label>
-        <input type="text" name="temperament" placeholder="temperamentos" value={dog.temperament} onChange={handleInputChange}  />
-        {errors.temperament && <p className={style.error}> {errors.temperament}</p>}
-        {/* <br />
-        <br />
-        <label htmlFor="image"> imagen </label>
-        <input type="url" name="image" placeholder="imagen del perro" value={dog.image} onChange={handleInputChange}  />
-        {errors.image && <p className={style.error}> {errors.image}</p>} */}
-        
-        <button type="submit" className={style.botonRegistrar} >
-          <img src={imagen} alt="imagen huesito del boton registrar" />  
-        </button>
-        
-      </form>
+          <div>
+            <label htmlFor="heightDos"> Altura minima </label>
+            <input type="text" name="heightDos" placeholder="ingrese altura del perro" value={dog.heightDos} onChange={handleInputChange}  />
+            {errors.heightDos && <p className={style.error}> {errors.heightDos}</p>}
+          </div>
+          
+          <div>
+            <label htmlFor="life_span"  > Años de vida </label>
+            <input type="text" name="life_span" placeholder="años de vida" value={dog.life_span} onChange={handleInputChange}  />
+            {errors.life_span && <p className={style.error}> {errors.life_span}</p>}
+          </div>
+
+          <div>
+            <label htmlFor="temperament"> temperamentos </label>
+            <input type="text" name="temperament" placeholder="temperamentos" value={dog.temperament} onChange={handleInputChange}  />
+            {errors.temperament && <p className={style.error}> {errors.temperament}</p>}
+          </div>
+          
+          <div>
+            {/*<label htmlFor="image"> imagen </label>
+            <input type="url" name="image" placeholder="imagen del perro" value={dog.image} onChange={handleInputChange}  />
+            {errors.image && <p className={style.error}> {errors.image}</p>} */}
+          </div>
+          
+          <button type="submit" className={style.botonRegistrar} >
+            <img src={imagen} alt="imagen huesito del boton registrar" />  
+          </button>
+          
+        </form>
       </div>
 
       <div className={style.divBotonRegistro}>

@@ -32,13 +32,31 @@ const reducer = (state = inicialState, action) => {
       };
 
     case ORDER:
-      return {
-        ...state,
-        myDogs:
-          action.payload === "Ascendente"
-            ? state.myDogs?.sort((a, b) => a.id - b.id)
-            : state.myDogs?.sort((a, b) => b.id - a.id),
-      };
+      switch (action.payload) {
+        case "ascendente":
+          const temp = state.myDogs.sort((a, b) => a.id - b.id);
+          return {
+            ...state,
+            myDogs: temp,
+          };
+        case "descendente":
+          const temp2 = state.myDogs.sort((a, b) => b.id - a.id);
+          return {
+            ...state,
+            myDogs: temp2,
+          };
+        case "default":
+          const temp3 = state.myDogs.sort((a, b) => a.id - b.id);
+          return {
+            ...state,
+            myDogs: temp3,
+          };
+        default:
+          return {
+            ...state,
+            myDogs: state.myDogs,
+          };
+      }
 
     case ERROR:
       return {
@@ -54,6 +72,7 @@ const reducer = (state = inicialState, action) => {
     //   };
 
     default:
+      console.log("hubo un erro y se activo line 74 del archivo actions.js");
       return { ...state };
   }
 };

@@ -1,4 +1,4 @@
-const Dogscapture = (dogs, data, name, id) => {
+const Dogscapture = (dogs, data, name) => {
   const perrosApi = data.map(elemento => {
     return {
       id: elemento.id,

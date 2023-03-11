@@ -1,6 +1,6 @@
 import styled from "./Home.module.css"
 
-import React from "react";
+import React, { useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux"
 import { getAllDogs, filterCards, orderCards } from "../redux/actions"
@@ -13,8 +13,7 @@ import Navbar from "../Navbar/Navbar";
 function Home() {
   console.log("Se ejecutó Home");
   
-  const dogs = useSelector(state => state.myDogs);
-  console.log(dogs);
+  const {myDogs} = useSelector(state => state);
   
   const dispatch = useDispatch()
 
@@ -23,14 +22,16 @@ function Home() {
 
   const [inicio,setInicio] = React.useState(1)
   const [perrosEnPantalla] = React.useState(8)
+  const [tipo,setTipo] = React.useState("name")
+  
+  const handleOrder = async (e) => {
 
-  const handleOrder = (evento) => {
-    dispatch(orderCards(evento.target.value))
-  } 
+    dispatch(orderCards(e.target.value))
+    
+  }
 
   const handleFilter = (evento) => {
     setPropiedad(evento.target.value)
-    console.log(evento.target.value)
   }
 
   const handleChange = (e) => {
@@ -48,7 +49,7 @@ function Home() {
     dispatch(getAllDogs())
   }
 
-  const ultimaPagina = Math.ceil(dogs.length/perrosEnPantalla)
+  const ultimaPagina = Math.ceil(myDogs.length/perrosEnPantalla)
   const delante = () => inicio  ===  ultimaPagina ? setInicio(inicio): setInicio(inicio+1)
   const paginate = pagina => setInicio(pagina)
   const atras = () => inicio === 1? setInicio(inicio):setInicio(inicio-1)
@@ -59,7 +60,7 @@ function Home() {
     },[dispatch]
   )
 
-  if(!dogs.length){
+  if(!myDogs.length){
     return(
       <div className={styled.cargandoDiv}>
         <img className={styled.cargando} src={cargando} alt="CargandoPagina" />
@@ -70,7 +71,7 @@ function Home() {
 
     const final = inicio * perrosEnPantalla
     const comienzo = final - perrosEnPantalla
-    var current = dogs.slice(comienzo,final)
+    var current = myDogs.slice(comienzo,final)
 
     return (
       <div className={styled.contenedor} >
@@ -79,10 +80,17 @@ function Home() {
         </div>
         <div className={styled.filters} >
           <div>
+          <select onChange={handleOrder}>
+              <option value="name" defaultChecked >aA - zZ</option>
+              <option value="weight">weight</option>
+              <option value="height">height</option>
+              <option value="life_span">Promedio de vida</option>
+              <option value="temperament">temperamentos</option>
+            </select>
             <select onChange={handleOrder}>
-              <option value="order" disabled= "disabled"  >Order By</option>
-              <option value="Ascendente">Ascendente</option>
-              <option value="Descendente">Descendente</option>
+              <option value="default"  >Default</option>
+              <option value="ascendente">Ascendente</option>
+              <option value="descendente">Descendente</option>
             </select>
             <select onChange={handleFilter}>
               <option value="" disabled >Busqueda Por</option>
@@ -117,7 +125,7 @@ function Home() {
         </div>
 
         <div className={styled.pagi} >
-          <Pagination perrosEnPantalla={perrosEnPantalla} totalPerros = {dogs.length} delante = {delante} atras = {atras} paginate = {paginate} />
+          <Pagination perrosEnPantalla={perrosEnPantalla} totalPerros = {myDogs.length} delante = {delante} atras = {atras} paginate = {paginate} />
         </div>
       </div>
     )
