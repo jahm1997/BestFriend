@@ -3,7 +3,7 @@ import styled from "./Home.module.css"
 import React from "react";
 
 import { useDispatch, useSelector } from "react-redux"
-import { getAllDogs, filterCards } from "../redux/actions"
+import { getAllDogs, filterCards, orderCards } from "../redux/actions"
 
 import Dogs from "../Dogs/Dogs"
 import Pagination from "../pagination/pagination";
@@ -23,6 +23,10 @@ function Home() {
 
   const [inicio,setInicio] = React.useState(1)
   const [perrosEnPantalla] = React.useState(8)
+
+  const handleOrder = (evento) => {
+    dispatch(orderCards(evento.target.value))
+  } 
 
   const handleFilter = (evento) => {
     setPropiedad(evento.target.value)
@@ -75,13 +79,18 @@ function Home() {
         </div>
         <div className={styled.filters} >
           <div>
+            <select onChange={handleOrder}>
+              <option value="order" disabled= "disabled"  >Order By</option>
+              <option value="Ascendente">Ascendente</option>
+              <option value="Descendente">Descendente</option>
+            </select>
             <select onChange={handleFilter}>
-              <option value="">por Defecto</option>
+              <option value="" disabled >Busqueda Por</option>
               <option value="name">Raza</option>
               <option value="weight">Peso</option>
               <option value="height">Estatura</option>
               <option value="life_span">Años de vida</option>
-              <option value="temperament">Temperamento</option>
+              <option value="temperament">temperamentos</option>
             </select>
           </div>
           <div>

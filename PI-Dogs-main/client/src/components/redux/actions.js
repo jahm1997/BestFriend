@@ -1,5 +1,5 @@
 import axios from "axios";
-import { GET_ALL_DOGS, GET_DOG, ORDER, FILTER } from "./actions-types";
+import { GET_ALL_DOGS, GET_DOG, FILTER, ORDER } from "./actions-types";
 
 export const ERROR = "error";
 
@@ -28,38 +28,27 @@ export const getDog = id => async dispatch => {
 
 export const filterCards = (valor, propiedad) => async dispatch => {
   const response = await axios.get(`http://localhost:3001/dogs`);
+  const perros = response.data;
   try {
-    if (propiedad === "") {
-      return dispatch({ type: FILTER, payload: response.data });
-    } else {
-      // if (propiedad !== "temperament") {
-      //   const temp = response.data.filter(dog =>
-      //     dog[propiedad].includes(valor)
-      //   );
-      //   return dispatch({ type: FILTER, payload: temp });
-      // } else {
-      const filter = response.data.map(dog => {
-        return dog[propiedad].toLowerCase().includes(valor);
-      });
-      console.log("--------------------------------");
-      if (filter.length) {
-        for (let i = 0; i < filter.length; i++) {
-          if (filter[i] !== true) {
-            alert("La raza no fue encontrada");
-            return dispatch({ type: FILTER, payload: response.data });
-          }
-        }
-      }
-      return dispatch({ type: FILTER, payload: filter });
-      // }
+    if (valor !== "") {
+      var filter = perros.filter(dog =>
+        dog[propiedad]?.toLowerCase().includes(valor)
+      );
     }
+
+    if (filter.length === 0) {
+      alert("no encontramos coincidencias");
+      return dispatch({ type: FILTER, payload: response.data });
+    }
+
+    return dispatch({ type: FILTER, payload: filter });
   } catch (error) {
     return dispatch({ type: ERROR, payload: error });
   }
 };
 
-export const orderCards = string => {
-  return { type: ORDER, payload: string };
+export const orderCards = id => {
+  return { type: ORDER, payload: id };
 };
 
 // };

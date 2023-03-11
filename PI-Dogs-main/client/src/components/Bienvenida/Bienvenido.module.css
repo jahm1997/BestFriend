@@ -30,7 +30,7 @@
 
 .divBoton:hover {
     color: rgba(255, 255, 255, 1) !important;
-    box-shadow: 0 5px 200px rgba(49, 138, 172, 1);
+    box-shadow: 0 2px 100px rgb(4, 40, 117);
     transition: all 0.2s ease;
 }
 

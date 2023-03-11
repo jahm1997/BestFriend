@@ -1,6 +1,7 @@
 import style from "./Dog.module.css"
 
 import cargando from "../imagenes/cargando2.jpg"
+import Navbar from "../Navbar/Navbar";
 
 import { useEffect } from "react";
 
@@ -17,7 +18,7 @@ function Dog () {
     const {id} = useParams()
     const perro = useSelector(state=>state.dog)
     const dog = perro[0]
-    console.log(dog)
+    
     useEffect(
         ()=>{
           dispatch(getDog(id))
@@ -33,13 +34,21 @@ function Dog () {
         )
     }else{
         return (
-            <div className={style.container}>
-               <h3>Name: {dog.name}</h3>
-               <h3>Peso: {dog.weight}</h3>
-               <h3>Alto: {dog.height}</h3>
-               <h3>Años de vida : {dog.life_span}</h3>
-               <h4>temperamentos: {dog.temperament}</h4>
-               <img className={style.imagen} src={dog.image} alt={dog.name} />
+            <div className={style.contenedorGeneral} >
+                <div className={style.menu} >
+                    <Navbar/>
+                </div>
+
+                <div className={style.container}>
+                    <h3>Name: {dog.name}</h3>
+                    <h3>Peso: {dog.weight}</h3>
+                    <h3>Alto: {dog.height}</h3>
+                    <h3>Años de vida : {dog.life_span}</h3>
+                    <h4>temperamentos: {dog.temperament}</h4>
+                </div> 
+                <div className={style.containerImg}>
+                    <img className={style.imagen} src={dog.image} alt={dog.name} />
+                </div>
             </div>
         );
     }

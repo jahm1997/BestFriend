@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const postDog = require("../services/ServiceDog/postDog");
 const getAllDogs = require("../services/serviceDog/getAllDogs");
-const getDogById = require("../services/serviceDog/getDogId");
+const getDogById = require("../services/ServiceDog/getDogId");
 
 const router = Router();
 

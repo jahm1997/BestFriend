@@ -1,5 +1,5 @@
 import { ERROR } from "./actions";
-import { GET_ALL_DOGS, GET_DOG, ORDER, FILTER } from "./actions-types";
+import { GET_ALL_DOGS, GET_DOG, FILTER, ORDER } from "./actions-types";
 
 const inicialState = {
   myDogs: [],
@@ -21,13 +21,11 @@ const reducer = (state = inicialState, action) => {
     case GET_DOG:
       return {
         ...state,
-        dog: [...state.dog, action.payload],
+        dog: [...state.dog, ...action.payload],
       };
 
     case FILTER:
-      // const filtroDogs = state.myDogs.filter(dog =>
-      //   dog[action.payload.propiedad].includes(action.payload.valor)
-      // );
+      console.log(action.payload);
       return {
         ...state,
         myDogs: action.payload,
@@ -38,8 +36,8 @@ const reducer = (state = inicialState, action) => {
         ...state,
         myDogs:
           action.payload === "Ascendente"
-            ? state.myDogs.sort((a, b) => a.id - b.id)
-            : state.myDogs.sort((a, b) => b.id - a.id),
+            ? state.myDogs?.sort((a, b) => a.id - b.id)
+            : state.myDogs?.sort((a, b) => b.id - a.id),
       };
 
     case ERROR:
@@ -47,7 +45,6 @@ const reducer = (state = inicialState, action) => {
         ...state,
         error: action.payload,
       };
-
     // case DELETE_FAVORITE:
     //   return {
     //     ...state,

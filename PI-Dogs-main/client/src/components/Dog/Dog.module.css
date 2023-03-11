@@ -1,14 +1,42 @@
+
+.contenedorGeneral{
+    background-image: url("../imagenes/prueba3.jpeg");
+    width: auto;
+    height: 1000px;
+    padding: 0;
+    margin: 0;
+}
+
+.menu{
+    height: 20px;
+    /* border: 10px solid pink; */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items:flex-start;
+    font-size: large;
+    margin-top: 10px;
+}
+
+    
+
 .container{
     border: blueviolet;
     contain:content;
     width: 15rem;
-    height: 30rem;
-    position: absolute;
-    
+    height: 30rem;   
+    border: 5px solid red;
 }
+
+.containerImg{
+    height: 200px;
+    width: 200px;
+}
+
 .imagen{
-    width: 15rem;
-    height: 12rem;
+    width: 40%;
+    height: 40%;
     position: absolute;
 }
 

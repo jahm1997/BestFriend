@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "./Pagination.module.css"
 
 const Pagination = ({ totalPerros, perrosEnPantalla, paginate, delante, atras }) => {
@@ -10,28 +11,33 @@ const Pagination = ({ totalPerros, perrosEnPantalla, paginate, delante, atras })
 
   return (
     <div className={styled.list}>
-      {console.log(numeroPaginas)}
-      {console.log(Math.ceil(totalPerros / perrosEnPantalla))}
       <ul>
         <li>
-          <a onClick={()=>atras()} href="#">Atras</a>
+        <Link>
+            <p onClick={()=>atras()} > 
+              Atras
+            </p>
+          </Link> 
         </li>
 
         {numeroPaginas.map(number => (
           <li key={number}>
-            <a onClick={() => paginate(number)} href="#">
-              {number}
-            </a>
+            <Link>
+              <p onClick={() => paginate(number)}>
+                {number}
+              </p>
+            </Link> 
           </li>
         ))}
-
+        
+        
         <li>
-          <a onClick={()=>delante()} href="#"> Delante </a>
+          <Link>
+            <p onClick={()=>delante()} > 
+              Delante
+            </p>
+          </Link>   
         </li>
-
-        {/* <li key={number} >
-          <a onClick={() => paginate(number+1)}></a>
-        </li> */}
       </ul>
     </div>
   );

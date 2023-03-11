@@ -1,18 +1,22 @@
 const axios = require("axios");
-const findById = require("../../controllers/captureById");
-
-const url = "http://localhost:3001/dogs"; // param.id = 2
+const captureById = require("../../controllers/captureById");
+const { Dog } = require("../../db");
 
 const getDogById = async (req, res) => {
   console.log("-----Se ejecutó getDogId.js------");
 
-  const id = Number(req.params.id);
+  const perros = await axios.get("https://api.thedogapi.com/v1/breeds");
+  const dataApi = perros.data;
+  const dogs = await Dog.findAll();
+  const dogsdos = dogs.map(perro => perro.dataValues);
 
-  const response = await axios.get(url);
+  const id = Number(req.params.id);
   try {
-    let objetivoPerruno = findById(response.data, id);
+    console.log("llegó aqui linea 13");
+    let objetivoPerruno = captureById(dogsdos, dataApi, id);
     res.status(200).send(objetivoPerruno);
   } catch (err) {
+    console.log(err);
     res.status(400).end({ err: err.message });
   }
 };

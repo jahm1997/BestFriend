@@ -1,23 +1,24 @@
 const { Dog } = require("../../db");
 const axios = require("axios");
 const captureDogs = require("../../controllers/captureDogs");
-const captureRaza = require("../../controllers/captureRaza");
 
 const todos = async (req, res) => {
   console.log("-----Se ejecutó getAllDogs.js------");
   const { name } = req.query;
+  const { id } = req.params;
 
   const perros = await axios.get("https://api.thedogapi.com/v1/breeds");
   const dataApi = perros.data;
 
   const dogs = await Dog.findAll();
+  const dogsdos = dogs.map(perro => perro.dataValues);
 
   try {
     if (name) {
-      const dataBase_iff = captureRaza(dogs, dataApi, name);
-      res.status(200).send(dataBase_iff);
+      const database = captureDogs(dogsdos, dataApi, name);
+      res.status(200).send(database);
     } else {
-      const dataBase = captureDogs(dogs, dataApi);
+      const dataBase = captureDogs(dogsdos, dataApi);
       res.status(200).send(dataBase);
     }
   } catch (err) {

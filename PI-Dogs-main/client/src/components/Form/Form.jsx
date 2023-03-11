@@ -4,6 +4,7 @@ import style from "./Form.module.css";
 import validateForm from "./validateForm"
 import { postdog } from "../redux/actions";
 import { useNavigate } from "react-router-dom";
+import imagen from "../imagenes/botonhuesitos.png"
 
 import video from "../videos/videoPerritos.mp4"
 
@@ -13,15 +14,23 @@ const Form = () => {
   
   const [dog,setDog] = useState({
     name:"",
-    weight: "",
-    height: "",
-    life_span:""
+    weightUno: "",
+    weightDos: "",
+    heightUno: "",
+    heightDos: "",
+    life_span:"",
+    temperament:"",
+    image:""
   })
   const [errors,setErrors] = useState({
     name:"",
-    weight: "",
-    height: "",
-    life_span:""
+    weightUno: "",
+    weightDos: "",
+    heightUno: "",
+    heightDos: "",
+    life_span:"",
+    temperament:"",
+    image:""
   })
   
   const handleInputChange = (eve)=>{
@@ -37,18 +46,10 @@ const Form = () => {
       )
     }
     
-    const handleSubmit = async (event) =>{
-      event.preventDefault()
-      // creacion(dog)
-      try {
-        console.log(event)
-        const formulario = await postdog(dog)
-        console.log(formulario)
-        traslado(`/dogs`)
-      } catch (error) {
-        console.log(error)
-      }
-    }
+  const handleSubmit = (event) =>{
+    event.preventDefault()
+      postdog(dog)      
+  }
 
 
 return(
@@ -76,15 +77,27 @@ return(
         <br />
         <br />
 
-        <label htmlFor="weight"> Peso </label>
-        <input type="text" name="weight" placeholder="ingrese peso del perro" value={dog.weight} onChange={handleInputChange}  />
-        {errors.weight && <p className={style.error}> {errors.weight}</p>}
+        <label htmlFor="weightUno"> Peso Minimo</label>
+        <input type="text" name="weightUno" placeholder="ingrese peso del perro" value={dog.weightUno} onChange={handleInputChange}  />
+        {errors.weightUno && <p className={style.error}> {errors.weightUno}</p>}
+        <br />
+        <br />
+
+        <label htmlFor="weightDos"> Peso Maximo</label>
+        <input type="text" name="weightDos" placeholder="ingrese peso del perro" value={dog.weightDos} onChange={handleInputChange}  />
+        {errors.weightDos && <p className={style.error}> {errors.weightDos}</p>}
         <br />
         <br />
         
-        <label htmlFor="height"> Altura </label>
-        <input type="text" name="height" placeholder="ingrese altura del perro" value={dog.height} onChange={handleInputChange}  />
-        {errors.height && <p className={style.error}> {errors.height}</p>}
+        <label htmlFor="heightUno"> Altura maxima </label>
+        <input type="text" name="heightUno" placeholder="ingrese altura del perro" value={dog.heightUno} onChange={handleInputChange}  />
+        {errors.heightUno && <p className={style.error}> {errors.heightUno}</p>}
+        <br />
+        <br />
+
+        <label htmlFor="heightDos"> Altura minima </label>
+        <input type="text" name="heightDos" placeholder="ingrese altura del perro" value={dog.heightDos} onChange={handleInputChange}  />
+        {errors.heightDos && <p className={style.error}> {errors.heightDos}</p>}
         <br />
         <br />
         
@@ -93,13 +106,24 @@ return(
         {errors.life_span && <p className={style.error}> {errors.life_span}</p>}
         <br />
         <br />
+
+        <label htmlFor="temperament"> temperamentos </label>
+        <input type="text" name="temperament" placeholder="temperamentos" value={dog.temperament} onChange={handleInputChange}  />
+        {errors.temperament && <p className={style.error}> {errors.temperament}</p>}
+        {/* <br />
         <br />
-        <br />
-        <br />
-        <br />
+        <label htmlFor="image"> imagen </label>
+        <input type="url" name="image" placeholder="imagen del perro" value={dog.image} onChange={handleInputChange}  />
+        {errors.image && <p className={style.error}> {errors.image}</p>} */}
         
-        <button type="submit" className={style.botonRegistrar} >Registrar</button>
+        <button type="submit" className={style.botonRegistrar} >
+          <img src={imagen} alt="imagen huesito del boton registrar" />  
+        </button>
+        
       </form>
+      </div>
+
+      <div className={style.divBotonRegistro}>
       </div>
     </div>
   </div>
@@ -108,112 +132,3 @@ return(
 
 export default Form;
 
-
-// import style from "./Form.module.css";
-// import validateForm from "./validateForm"
-// import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
-// import { useDispatch, useSelector } from "react-redux";
-// // import {añadir} from "../../../../api/src/controllers/añadirDogs"
-
-// const Form = () => {
-//   const dispatch = useDispatch()
-//   const traslado = useNavigate()
-
-//   const mensaje = useSelector(state => state.success)
-//   const error = useSelector(state => state.error)
-//   console.log(mensaje)
-  
-//   const [dog,setDog] = useState({
-//     name:"",
-//     weight: "",
-//     height: "",
-//     life_span:"",
-//     // image:""
-//   })
-//   const [errors,setErrors] = useState({
-//     name:"",
-//     weight: "",
-//     height: "",
-//     life_span:"",
-//     // image:""
-//   })
-  
-//   const handleInputChange = (eve)=>{
-//     setDog({
-//       ...dog,
-//       [eve.target.name]:eve.target.value
-//     })
-//     setErrors(
-//       validateForm({
-//         ...errors,
-//         [eve.target.name]:eve.target.value
-//       })
-//       )
-//     }
-    
-//     const handleSubmit = (event) =>{
-//       event.preventDefault()
-//       // creacion(dog)
-//       try {
-//         if(!Object.keys(error).length){ // aqui la consulta es si error está vacio
-//           console.log("entro al if de la 50")
-//           dispatch(mensaje)
-//           console.log("ya hizo dispatch")
-          
-//           setDog({
-//             name:"",
-//             weight: "",
-//             height: "",
-//             life_span:""
-//           })
-//           console.log("ya seteo dog")
-//           traslado(`/dogs`)
-//           console.log("ya nos trasladó")
-//         }
-//       } catch (error) {
-        
-//         console.log("entro al error de la 62")
-//         alert(error)
-//       }
-//     }
-
-
-// return(
-//   <form  onSubmit={handleSubmit} >
-//     <br />
-//     <br />
-//     <label htmlFor="name"> Nombre </label>
-//     <input type="text" name="name" placeholder="ingrese el nombre" value={dog.name} onChange={handleInputChange}  />
-//     {/* // en este espacio colocamos los errores que lanza si no se introduce username correcto */}
-//     {errors.name && <p className={style.error}> {errors.name}</p>}
-//     <br />
-//     <br />
-//     <label htmlFor="weight"> Peso </label>
-//     <input type="text" name="weight" placeholder="ingrese peso del perro" value={dog.weight} onChange={handleInputChange}  />
-//     {errors.weight && <p className={style.error}> {errors.weight}</p>}
-//     <br />    
-//     <br />    
-//     <label htmlFor="height"> Altura </label>
-//     <input type="text" name="height" placeholder="ingrese altura del perro" value={dog.height} onChange={handleInputChange}  />
-//     {errors.height && <p className={style.error}> {errors.height}</p>}
-//     <br />
-//     <br />
-//     <label htmlFor="life_span"> Años de vida </label>
-//     <input type="text" name="life_span" placeholder="años de vida" value={dog.life_span} onChange={handleInputChange}  />
-//     {errors.life_span && <p className={style.error}> {errors.life_span}</p>}
-//     <br />
-//     <br />
-//     {/* <label htmlFor="image"> imagen </label>
-//     <input type="url" name="image" placeholder="imagen del perro" value={dog.image} onChange={handleInputChange}  />
-//     {errors.image && <p className={style.error}> {errors.image}</p>}
-//     <br />
-//     <br /> */}
-
-//     <button type="submit" >Registrar</button>
-
-//   </form>
-// )
-// };
-
-// export default Form;

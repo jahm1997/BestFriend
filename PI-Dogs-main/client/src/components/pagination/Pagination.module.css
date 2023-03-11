@@ -20,20 +20,21 @@
     text-decoration: none;
 }
 
-.list ul li a{
+.list ul li p{
     margin: 2px;
     padding: 8px;
+    width: auto
     /* background-image: url("../imagenes/botonhuesitos.png"); */
 }
 
-.list ul li:hover {
+.list ul li p:hover {
     background-color: rgb(9, 78, 156);
     color: white;
 
-    border-radius: 60%;
+    border-radius: 50%;
     border: 0.5px solid;
     margin: 2px;
-    padding: 1px;
+    padding: 8px;
     -webkit-transform:scale(1.3);
     -moz-transform:scale(1.3);
     -ms-transform:scale(1.3);
@@ -41,7 +42,7 @@
     transform:scale(1.3);
 }
 
-.list ul li a:hover{
+.list ul li p:hover{
     color: white;
     
 }
