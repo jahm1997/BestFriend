@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styled from "./Pagination.module.css"
+import style from "./Pagination.module.css"
+import move from "../imagenes/paginas.jpg"
 
 const Pagination = ({ totalPerros, perrosEnPantalla, paginate, delante, atras }) => {
   const numeroPaginas = [];
@@ -10,13 +11,11 @@ const Pagination = ({ totalPerros, perrosEnPantalla, paginate, delante, atras })
   }
 
   return (
-    <div className={styled.list}>
+    <div className={style.list}>
       <ul>
-        <li>
-        <Link>
-            <p onClick={()=>atras()} > 
-              Atras
-            </p>
+        <li className={style.listToImagen}>
+          <Link>
+            <img  src={move} alt={move} onClick={()=>atras()} />
           </Link> 
         </li>
 
@@ -24,18 +23,16 @@ const Pagination = ({ totalPerros, perrosEnPantalla, paginate, delante, atras })
           <li key={number}>
             <Link>
               <p onClick={() => paginate(number)}>
-                {number}
+                {number }🐶
               </p>
             </Link> 
           </li>
         ))}
         
         
-        <li>
+        <li className={style.listToImagen}>
           <Link>
-            <p onClick={()=>delante()} > 
-              Delante
-            </p>
+            <img  src={move} alt={move} onClick={()=>delante()} />
           </Link>   
         </li>
       </ul>

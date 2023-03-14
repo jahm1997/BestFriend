@@ -5,7 +5,7 @@
     text-align: center;
     width: 650px;
     display: inline-flex;
-    justify-content:center;
+    justify-content:start;
     margin-top: 3%;
     margin-left: 180px;
     /* border: 2px solid white */
@@ -13,12 +13,20 @@
     
 }
 
-.filters select,input, button{
+.filters select, button{
+    border: 3px solid blue;
+    padding: 6px 14px;
+    /* margin-left: 10px; */
+    border-radius: 10px;
+    font-size: 0.8rem;
+    text-align: start;
+
+} 
+.filters input{
     border: 3px solid blue;
     padding: 6px 14px;
     /* margin-left: 10px; */
     border-radius: 10px;
     font-size: 0.8rem;
     text-align: center;
-
-} 
+}

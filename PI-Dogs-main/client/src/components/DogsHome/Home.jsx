@@ -14,7 +14,6 @@ function Home() {
   console.log("Se ejecutó Home");
   
   const {myDogs} = useSelector(state => state);
-  console.log(myDogs)
 
   const dispatch = useDispatch()
 

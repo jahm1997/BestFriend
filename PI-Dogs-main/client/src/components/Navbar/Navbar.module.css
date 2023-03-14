@@ -10,7 +10,7 @@
 .logo a img{
     /* position:absolute; */
 
-    width: 135px;
+    width: 130px;
     border-radius: 15px;
     margin-top: 4px;
     margin-left: 4px;
@@ -19,7 +19,7 @@
 }
 
 .homePage a img {
-    width: 155px;
+    width: 105px;
     margin-left: 100px;
     border-radius: 15px;
     margin-top: 2px;
@@ -27,7 +27,7 @@
 }
 
 .bestFriend a img {
-    width: 141px;
+    width: 114px;
     margin-left: 20px;
     border-radius: 15px;
     margin-top: 2px;

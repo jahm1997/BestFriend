@@ -20,7 +20,6 @@ const Form = () => {
   const arrayTemps = Object.keys(temp)
   console.log(temp);
 
-
   //------------------------------BOTONCHECKBOX----------------------------------------------
   const handleTypesClick = () => {
     if(temp === false){
@@ -33,7 +32,6 @@ const Form = () => {
   
   const handleTypeChange = (event) => {
     const { name, checked } = event.target;
-    console.log(name,checked)
     setTemp({
       ...temp,
       [name]: checked,
@@ -49,7 +47,6 @@ const Form = () => {
     heightUno: "",
     heightDos: "",
     life_span: "",
-    temperament: "",
     image: ""
   })
   const [errors, setErrors] = useState({
@@ -59,7 +56,6 @@ const Form = () => {
     heightUno: "",
     heightDos: "",
     life_span: "",
-    temperament: "",
     image: ""
   })
 
@@ -78,8 +74,12 @@ const Form = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    // let adicional = temp.filter(obje => obje.add)
-
+    let arraytemps= []
+    for (const iterator of temp) {
+      if(temp[iterator] === false){
+        arrayTemps.push(iterator)
+      }
+    }
     postdog(dog)
     alert("haz creado una nueva raza! :D")
     traslado("/")
@@ -88,18 +88,6 @@ const Form = () => {
   useEffect(() => {
     dispatch(getAllTemps())
   }, [dispatch])
-
-  const inputOnCha = (e) => {
-    const { name, checked } = e.target;
-    // console.log(e.target.checked)
-    // const handleTypeChange = (event) => {
-    //   const { name, checked } = event.target;
-    //   setTypesChecked({
-    //     ...typesChecked,
-    //     [name]: checked,
-    //   });
-    // };
-  }
 
   return (
     <div className={style.divContenedor} >

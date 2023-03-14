@@ -52,11 +52,39 @@ const reducer = (state = inicialState, action) => {
             ...state,
             myDogs: temp2,
           };
-        case "default":
+        case "ascendente":
           const temp3 = state.myDogs.sort((a, b) => a.id - b.id);
           return {
             ...state,
             myDogs: temp3,
+          };
+        case "maxpeso":
+          console.log(
+            "Esto es en la linea 70 de reducer---",
+            state.myDogs[1].weight?.split(" - ")
+          );
+          const temp4 = state.myDogs.sort(
+            (a, b) =>
+              Number(a.weight?.split(" - ")[1]) -
+              Number(b.weight?.split(" - ")[1])
+          );
+          return {
+            ...state,
+            myDogs: temp4,
+          };
+        case "minpeso":
+          console.log(
+            "Esto es en la linea 70 de reducer---",
+            state.myDogs[0].weight?.split(" - ")[0]
+          );
+          const temp5 = state.myDogs.sort(
+            (a, b) =>
+              Number(b.weight?.split(" - ")[1]) -
+              Number(a.weight?.split(" - ")[1])
+          );
+          return {
+            ...state,
+            myDogs: temp5,
           };
         default:
           return {

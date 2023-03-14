@@ -7,7 +7,7 @@ import { filterCards, orderCards, getAllDogs } from "../redux/actions"
 
 function Filter() {
 
-  const dispatch = useDispatch
+  const dispatch = useDispatch()
 
   const [propiedad,setPropiedad] = React.useState("")
   const [valor,setValor] = React.useState("")
@@ -28,8 +28,7 @@ function Filter() {
 
   
   const enviar = () =>{
-    console.log( valor)
-    console.log( propiedad)
+
     dispatch(filterCards(valor,propiedad))
     setValor("")
   }
@@ -40,7 +39,6 @@ function Filter() {
   
   return (
     <div >
-        
           <div className={style.filters} >
             <div>
               <select onChange={handleOrder}>

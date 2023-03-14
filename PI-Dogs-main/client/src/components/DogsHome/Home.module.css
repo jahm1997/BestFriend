@@ -1,8 +1,9 @@
 .contenedor{
     display: grid;
-    grid-template-columns: 50px auto 50px ;
-    grid-template-rows: auto auto auto auto 80px;
+    grid-template-columns: 40px auto 50px ;
+    grid-template-rows: 100px 52rem 2rem;
     background-image: url("../imagenes/prueba3.jpeg");
+    height: 115%;
 }
 
 .menu{
@@ -13,24 +14,24 @@
 .cartas{
   /* background-image: url("../../prueba3.jpeg"); */
   grid-column: 2/3;
-  grid-row: 3/4;
+  grid-row: 2/4;
   position:relative;
   padding-top: 2%;
 
   display: grid;
   grid-template-columns: auto auto auto auto;
-  grid-template-rows: 29rem 29rem;
+  grid-template-rows: 25rem 10rem;
   padding-left: 4%;
 }
 
 .pagi{
-  grid-row: 4/5;
+  grid-row: 3/5;
   grid-column: 2/4;
 
   text-align: center;
   font-size:15px;
-  display:flex;
-  justify-content:space-evenly;
+  height: 5px;
+
 }
 
 .cargandoDiv{

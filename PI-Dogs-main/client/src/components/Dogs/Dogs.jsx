@@ -10,8 +10,6 @@ const Dogs = (props) => {
             <h3>Name: {props.name}</h3>
          </Link>
          <h4>Peso: {props.weight} Kilogramos</h4>
-         <h4>Alto: {props.height} Centimetros</h4>
-         <h4>Años de vida : {props.life_span}</h4>
          <h4>Temperamentos : {props.temperament}</h4>
       </div>
     );

@@ -4,11 +4,12 @@
     border: 5px solid;
     /* border-color: #e0b455; */
     border-color: blue;
+    background-color: rgb(125, 177, 255);
     text-align: center;
     width: 270px;
     border-radius: 5%;
     
-    height: 25rem;
+    height: 23rem;
     line-height: 120%;
     margin: 5% 5%;
 }
