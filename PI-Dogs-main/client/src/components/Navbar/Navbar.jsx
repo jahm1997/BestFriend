@@ -2,8 +2,11 @@ import style from "./Navbar.module.css";
 import logoTipo from "../imagenes/logoTipo_dogs_modified.png"
 import CrearDog from "../imagenes/createDog.jpg"
 import homePage from "../imagenes/homePage.jpg"
+import Filter from "../Filters/Filter"
+import { useLocation } from "react-router-dom";
 
 const Navbar = () => {
+  const location = useLocation()
   
   return (
     <div className={style.menu} >
@@ -12,6 +15,9 @@ const Navbar = () => {
                 <img src={logoTipo} alt={logoTipo} />  
               </a>
           </div>
+          
+          { location.pathname === "/dogs" ? <Filter/> : <h1>¡ME ESTA QUEDANDO CHIDO!</h1> }
+          
           
           <div className={style.homePage} >
               <a href="/dogs">

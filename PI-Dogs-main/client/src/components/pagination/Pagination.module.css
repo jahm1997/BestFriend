@@ -21,26 +21,31 @@
 }
 
 .list ul li p{
+    font-weight: 500;
     margin: 2px;
     padding: 8px;
     width: auto
     /* background-image: url("../imagenes/botonhuesitos.png"); */
 }
 
-.list ul li p:hover {
-    background-color: rgb(9, 78, 156);
-    color: white;
+@media (prefers-reduced-motion: no-preference) {
+    
+    .list ul li p:hover {
+        animation: botonRegistrar infinite 1s alternate;
+        background-color: blue;
+        color: white;
 
-    border-radius: 50%;
-    border: 0.5px solid;
-    margin: 2px;
-    padding: 8px;
-    -webkit-transform:scale(1.3);
-    -moz-transform:scale(1.3);
-    -ms-transform:scale(1.3);
-    -o-transform:scale(1.3);
-    transform:scale(1.3);
-}
+        border-radius: 50%;
+        border: 0.5px solid;
+        margin: 5px;
+        padding: 5px;
+        -webkit-transform:scale(1.3);
+        -moz-transform:scale(1.3);
+        -ms-transform:scale(1.3);
+        -o-transform:scale(1.3);
+        transform:scale(1.3);    
+}   }
+
 
 .list ul li p:hover{
     color: white;

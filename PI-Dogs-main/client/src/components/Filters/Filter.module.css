@@ -1,0 +1,24 @@
+
+.filters{
+    grid-column: 2/3;
+    grid-row: 2/3;
+    text-align: center;
+    width: 650px;
+    display: inline-flex;
+    justify-content:center;
+    margin-top: 3%;
+    margin-left: 180px;
+    /* border: 2px solid white */
+
+    
+}
+
+.filters select,input, button{
+    border: 3px solid blue;
+    padding: 6px 14px;
+    /* margin-left: 10px; */
+    border-radius: 10px;
+    font-size: 0.8rem;
+    text-align: center;
+
+} 

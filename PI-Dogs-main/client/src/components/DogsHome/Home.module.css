@@ -10,20 +10,6 @@
   grid-row: 1/2;
 }
 
-.filters{
-    grid-column: 2/3;
-    grid-row: 2/3;
-
-    margin-top: 30px;
-    /* top: 0px;
-    width: 25%;
-    height: 35rem; */
-    display: flex;
-    /* background-color: blue; */
-    justify-content: center;
-    
-}
-
 .cartas{
   /* background-image: url("../../prueba3.jpeg"); */
   grid-column: 2/3;
@@ -33,7 +19,7 @@
 
   display: grid;
   grid-template-columns: auto auto auto auto;
-  grid-template-rows: 27rem 29rem;
+  grid-template-rows: 29rem 29rem;
   padding-left: 4%;
 }
 

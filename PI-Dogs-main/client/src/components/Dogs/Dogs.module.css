@@ -1,8 +1,9 @@
 .container{
     /* background-image: url("../../prueba3.jpeg"); */
     position: relative ;
-    /* border: 5px solid; */
+    border: 5px solid;
     /* border-color: #e0b455; */
+    border-color: blue;
     text-align: center;
     width: 270px;
     border-radius: 5%;
