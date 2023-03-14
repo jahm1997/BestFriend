@@ -17,10 +17,12 @@ const Form = () => {
   const { temperamentos } = useSelector(state => state)
   const [temp, setTemp] = useState(false)
   const [boton,setBoton] = useState(true)
+  const [arrayResponse,setArrayResponse] = useState([])
   const arrayTemps = Object.keys(temp)
-  console.log(temp);
 
   //------------------------------BOTONCHECKBOX----------------------------------------------
+  
+  
   const handleTypesClick = () => {
     if(temp === false){
       setTemp(temperamentos)
@@ -28,17 +30,51 @@ const Form = () => {
       temp?setTemp(!temperamentos):setTemp(temperamentos)
     }
     boton === false?setBoton(true):setBoton(false)
+    seteoArray()
+   
   };
+  console.log(temp)
+  console.log(arrayResponse)
+
+  function seteoArray(){
+    let resultado= []
+    if(typeof temp === "object" && temp !== false ){
+      for (const iterator in temp) {
+          if(temp[iterator] === true){
+            resultado.push(iterator)
+          }
+        }
+      setArrayResponse(resultado)
+    }
+  }
   
   const handleTypeChange = (event) => {
-    const { name, checked } = event.target;
-    setTemp({
-      ...temp,
-      [name]: checked,
-    });
-    
+    const { name, checked,} = event.target;
 
+
+    console.log(typeof value);
+    let acumulador = 0
+    for (const key in temp) {
+        if(temp[key]===true){
+          acumulador++
+        }
+    }
+    if(acumulador > 5){
+      alert("Solo se pueden añadir 5 temperamentos")
+    }else{
+      setTemp({
+        ...temp,
+        [name]: checked,
+      });
+    }
+    
   };
+
+  const handleTypesFilter = () =>{
+    setTemp(temperamentos)
+  }
+
+  
 //------------------------------FORMULARIO------------------------------------------------
   const [dog, setDog] = useState({
     name: "",
@@ -74,12 +110,7 @@ const Form = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    let arraytemps= []
-    for (const iterator of temp) {
-      if(temp[iterator] === false){
-        arrayTemps.push(iterator)
-      }
-    }
+    
     postdog(dog)
     alert("haz creado una nueva raza! :D")
     traslado("/")
@@ -146,16 +177,21 @@ const Form = () => {
 
           <label htmlFor="life_span"  > Temperamentos </label>
           <div className={style.filterSelection}>
-              <button className={style.filter__button} onClick={handleTypesClick}>
-                Seleccionar
-              </button>
+              <div className={style.filter__buttons} >
+                <button className={style.filter__button} onClick={handleTypesClick}>
+                  Seleccionar
+                </button>
+                <button className={style.filter__buttonDos} onClick={handleTypesFilter}>
+                  Clean Filters
+                </button>
+              </div>
               <div>
               {temp && (
                 <div className={style.filter__types}>
                   {
                     arrayTemps.map(ele=>(
                       <label htmlFor={ele} key={ele}>
-                        <input type="checkbox" name={ele} onChange={handleTypeChange} />
+                        <input type="checkbox" onChange={handleTypeChange} />
                         {ele}
                       </label>
                     ))
