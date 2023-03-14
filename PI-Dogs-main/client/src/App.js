@@ -8,7 +8,7 @@ import Bienvenido from "./components/Bienvenida/Bienvenido";
 import { Route, Routes, useLocation } from "react-router-dom";
 
 function App() {
-  const location = useLocation();
+  // const location = useLocation();
 
   return (
     <div className="App">

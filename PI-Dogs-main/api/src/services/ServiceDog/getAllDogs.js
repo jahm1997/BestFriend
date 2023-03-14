@@ -10,15 +10,16 @@ const todos = async (req, res) => {
   const dataApi = perros.data;
 
   const dogs = await Dog.findAll();
-  const dogsdos = dogs.map(perro => perro.dataValues);
+  const dogsdos = dogs.map((perro) => perro.dataValues);
 
   try {
-    if (name) {
-      const database = captureDogs(dogsdos, dataApi, name);
-      res.status(200).send(database);
-    } else {
+    if (!name) {
       const dataBase = captureDogs(dogsdos, dataApi);
       res.status(200).send(dataBase);
+    } else {
+      const database = captureDogs(dogsdos, dataApi, name);
+      res.status(200).send(database);
+      console.log("Estoy en serviceDog linea 19");
     }
   } catch (err) {
     res.status(400).end({ err: err.message });

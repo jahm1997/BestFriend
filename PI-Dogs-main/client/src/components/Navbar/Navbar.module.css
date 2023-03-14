@@ -1,18 +1,26 @@
 .menu{
-    height: 20px;
+    height: 80px; 
+    width: 100%;
+    background-image: url("../imagenes/nav_Joseph.png");
     /* border: 10px solid pink; */
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: space-evenly;
-    align-items:flex-start;
-    font-size: large;
-    margin-top: 10px;
+    display:inline-flex
+
 }
 
-.logo h4{
-    margin: 0;
-    padding: 0;
+.logo a img{
+    /* position:absolute; */
+    width: 155px;
+
+}
+
+.homePage a img {
+    width: 175px;
+    padding-left: 900px;
+}
+
+.bestFriend a img {
+    width: 161px;
+    padding-left: 20px;
 }
 
 

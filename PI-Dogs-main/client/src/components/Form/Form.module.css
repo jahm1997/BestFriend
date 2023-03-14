@@ -1,34 +1,29 @@
 .divContenedor{
     box-sizing: border-box;
     height: 1000px;
+    width: 100%;
     background-image: url("../imagenes/prueba3.jpeg");
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+
     margin: 0;
     padding: 0;    
 
     display:grid;
-    grid-template-columns: 900px auto;
-    grid-template-rows: 90px auto;
+    grid-template-columns: 900px auto ;
+    grid-template-rows: auto auto;
 }
 
 .menu{
     grid-column: 1/3;
     grid-row: 1/2;
-
-    margin-top: 20px;
-    padding: 0;
-    box-sizing: border-box;
-    /* border: 5px solid red; */
-    height: 70px;
 }
 
 .botonPerrito{
     margin-left: 5%;
     position: absolute;
-    top: 90px;
+    top: 100px;
     
 }
 
@@ -37,20 +32,20 @@
     grid-column: 1/2;
     
     position: relative;
-    top: 1px;
+    top: 0;
     /* left: 50%; */
     /* border: 5px solid blue;     */
 }
 
 .videoint{
     left: 500px;
-    transform: translate(0%, -18.5%);
+    transform: translate(0%, -17%);
     z-index: 10000;
-    top:300px;
-    border: 2px solid;
+    top:0px;
+    border: 3px solid black ;
     margin: 0;
     padding: 0;
-    height: 449px;
+    height: 422px;
 }
 
 .formularioExt{
@@ -60,9 +55,12 @@
     /* border: 5px solid black */
     /* border: 5px solid red; */
     position: absolute;
-    top: 12%;
-    left: 65%;
+    top:55%;
+    left: 80%;
+    width: 390px;
+    height: 570px;
     transform: translate(-50%, -50%);
+
 }
 
 .formularioint{
@@ -75,24 +73,26 @@
     margin-top:10%;
     margin-left:0;
     display: relative;
-    font-size: larger;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+    font-size: larger; */
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
-    height: 580px;
+
+    height: 538px;
     position: absolute;
-    padding: 30px 65px 10px 60px;
+    padding: 20px 65px 10px 60px;
     z-index: 1000;
     background-color: white;
     border: 2px solid red;
-    border-radius: 10px;
+    border-radius: 20px;
 
 
 }
 
 label{
-    margin-top: 5px;
+    margin-top: 15px;
     margin-bottom: 0.2rem;
     display: block;
+    font-weight: 500;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     
 }
@@ -101,18 +101,29 @@ label{
     display:block;
     border: 3px solid blue;
     padding: 6px 50px;
+    margin-left: 0px;
     border-radius: 10px;
     font-size: 0.8rem;
+    text-align: center;
 
 }
-input[type="url"]{
-    width: 100%;
-    font-size: 1rem;
-    padding: 0,5rem  0;
-    margin-top: 0,7rem;
-    background-color: blue;
-    border:none;
-    color:white;
+
+.HWeight{
+    position: relative;
+    justify-content: space-evenly;
+    font-weight: 500;
+}
+
+.inputHWeightDos, .inputHWeightUno{
+
+
+    width: 105px;
+    border: 3px solid blue;
+    padding: 5px 5px;
+    margin-left:8px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+    text-align: center;
 }
 
 .botonRegistrar{
@@ -121,12 +132,10 @@ input[type="url"]{
     mix-blend-mode: multiply ;
     background-position: center;
     background-repeat: no-repeat;
-    width: 200px;
-    height: 100px;
-
-    margin-top: 10px;
+    height: 80px;
+    margin-top: 50px;
+    margin-left: 10px;
     border: 0;
-    transform: rotate(345deg);
     
 }
 
@@ -137,10 +146,82 @@ input[type="url"]{
         -moz-transform:scale(1.1);
         -ms-transform:scale(1.1);
         -o-transform:scale(1.1);
-        transform:scale(1.3);
+        transform:scale(1.1);
     }
-  }
- 
-  
+}
+
+/* aqui empieza el formulario checkboxes */
+.seleccion{
+  display: relative;
+}
+
+.inputTemp{
+  display:relative;
+  width: 70px;
+  border: 3px solid blue;
+  padding: 6px 50px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+}
+
+.seleccionBoton{
+  display:relative;
+  width: 2px;
+  border: 3px solid blue;
+  padding: 6px 40px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+}
+
+.filterSelection{
+    margin-top: 10px;
+    position: absolute;
+    /* border: 2px solid red; */
+    display: grid;
+    grid-template-columns: 50% auto;
+    grid-template-rows: 20px 190px;
+    align-items: center;
+}
+.filter__button{
+    background-color: lightblue;
+    text-align: center;
+    border: 2px solid blue;
+    grid-column: 1/3 ;
+    grid-row: 1/2;
+    width: 263px;
+
+    display:block;
+    border: 3px solid blue;
+    padding: 6px 50px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+}
+
+.filter__types{
+    font-size:medium;
+    background-color: lightblue;
+    color:blue;
+
+    border: 2px solid red;
+
+    text-align:justify;
+    width: 259px;
+    position:absolute;
+    height: 180px;
+    border: 2px solid blue;
+    border-radius: 5%;
+    grid-row: 2/3;
+    grid-column: 1/3;
+    bottom: 0px;
+    padding: 0;
+    overflow:auto;
+
+}
+
+.filter__types label{
+    margin: 0;
+    padding-top: 5px;
+}
+
 
 

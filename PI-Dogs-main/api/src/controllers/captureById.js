@@ -1,6 +1,6 @@
 const captureById = (dogs, data, id) => {
   console.log("llegó aqui linea 2");
-  const perrosApi = data.map(elemento => {
+  const perrosApi = data.map((elemento) => {
     return {
       id: elemento.id,
       name: elemento.name,
@@ -11,7 +11,7 @@ const captureById = (dogs, data, id) => {
       temperament: elemento.temperament,
     };
   });
-  const perrosDB = dogs.map(elemento => {
+  const perrosDB = dogs.map((elemento) => {
     return {
       id: elemento.id,
       name: elemento.name,
@@ -24,8 +24,7 @@ const captureById = (dogs, data, id) => {
   });
   //transformación a array ?.split("-")
   const union = [...perrosApi, ...perrosDB];
-  let response = union.filter(perro => perro.id === id);
-  console.log(response);
+  let response = union.filter((perro) => perro.id === id);
   return response;
 };
 

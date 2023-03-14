@@ -1,10 +1,17 @@
 import { ERROR } from "./actions";
-import { GET_ALL_DOGS, GET_DOG, FILTER, ORDER } from "./actions-types";
+import {
+  GET_ALL_DOGS,
+  GET_DOG,
+  FILTER,
+  ORDER,
+  GET_TEMPS,
+} from "./actions-types";
 
 const inicialState = {
   myDogs: [],
   error: {},
   dog: [],
+  temperamentos: [],
 };
 
 const reducer = (state = inicialState, action) => {
@@ -58,6 +65,12 @@ const reducer = (state = inicialState, action) => {
           };
       }
 
+    case GET_TEMPS:
+      return {
+        ...state,
+        temperamentos: action.payload,
+      };
+
     case ERROR:
       return {
         ...state,
@@ -72,6 +85,8 @@ const reducer = (state = inicialState, action) => {
     //   };
 
     default:
+      console.log(action.type);
+      console.log(action.payload);
       console.log("hubo un erro y se activo line 74 del archivo actions.js");
       return { ...state };
   }

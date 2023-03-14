@@ -14,10 +14,4 @@ router.use("/dogs", allDogs);
 
 router.use("/temperaments", getTemps);
 
-// router.use("/registro", validation);
-
-// router.use("/About", info);
-
-// router.use("/favorites", favoritos);
-
 module.exports = router;

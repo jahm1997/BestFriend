@@ -8,8 +8,6 @@
 .menu{
   grid-column: 1/4;
   grid-row: 1/2;
-
-  margin-top: 20px;
 }
 
 .filters{
@@ -52,7 +50,7 @@
 .cargandoDiv{
   text-align: center;
   padding-top: 200px;
-  background-color: white;
+     background-color: white;
 }
 
 .cargando {

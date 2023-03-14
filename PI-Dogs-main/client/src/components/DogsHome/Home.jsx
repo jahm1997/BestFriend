@@ -3,7 +3,7 @@ import styled from "./Home.module.css"
 import React, { useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux"
-import { getAllDogs, filterCards, orderCards } from "../redux/actions"
+import { getAllDogs, filterCards, orderCards, getAllTemps } from "../redux/actions"
 
 import Dogs from "../Dogs/Dogs"
 import Pagination from "../pagination/pagination";
@@ -14,7 +14,8 @@ function Home() {
   console.log("Se ejecutó Home");
   
   const {myDogs} = useSelector(state => state);
-  
+  console.log(myDogs)
+
   const dispatch = useDispatch()
 
   const [propiedad,setPropiedad] = React.useState("")
@@ -22,7 +23,6 @@ function Home() {
 
   const [inicio,setInicio] = React.useState(1)
   const [perrosEnPantalla] = React.useState(8)
-  const [tipo,setTipo] = React.useState("name")
   
   const handleOrder = async (e) => {
 
@@ -56,9 +56,12 @@ function Home() {
 
   React.useEffect(
     ()=>{
+      dispatch(getAllTemps())
       dispatch(getAllDogs())
     },[dispatch]
   )
+
+
 
   if(!myDogs.length){
     return(
@@ -89,11 +92,15 @@ function Home() {
             </select> */}
             <select onChange={handleOrder}>
               <option value="default"  >Default</option>
-              <option value="ascendente">Ascendente</option>
-              <option value="descendente">Descendente</option>
+              <option value="" disabled >Alfabetico---</option>
+              <option value="ascendente">A to Z</option>
+              <option value="descendente">Z to A</option>
+              <option value="" disabled>By weight---</option>
+              <option value="maxpeso">max Weight</option>
+              <option value="minpeso">Min Weight</option>
             </select>
             <select onChange={handleFilter}>
-              <option value="" disabled >Busqueda Por</option>
+              <option value="" >Busqueda Por</option>
               <option value="name">Raza</option>
               <option value="weight">Peso</option>
               <option value="height">Estatura</option>
