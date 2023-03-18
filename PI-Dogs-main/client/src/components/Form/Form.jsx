@@ -7,7 +7,7 @@ import validateForm from "./validateForm"
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllTemps, postdog } from "../redux/actions";
+import { getAllTemps, getAllDogs, postdog } from "../redux/actions";
 
 const Form = () => {
   const traslado = useNavigate()
@@ -16,6 +16,7 @@ const Form = () => {
   //------------------------------ESTADOS------------------------------------------------
   
   const { temperamentos } = useSelector(state => state)
+  const { myDogs } = useSelector(state => state)
   const [temp, setTemp] = useState(false)
   const [boton,setBoton] = useState(true)
   
@@ -110,11 +111,11 @@ const Form = () => {
 
       postdog(dog)
       alert("haz creado una nueva raza! :D")
-      traslado("/")
-
+      traslado(`/dogs/${myDogs[myDogs.length-1].id}`)
   }
   
   useEffect(() => {
+    dispatch(getAllDogs())
     dispatch(getAllTemps())
   }, [dispatch])
   
