@@ -40,13 +40,17 @@ const reducer = (state = inicialState, action) => {
     case ORDER:
       switch (action.payload) {
         case "ascendente":
-          const temp = state.myDogs.sort((a, b) => a.id - b.id);
+          const temp = state.myDogs.sort((a, b) =>
+            a.name.localeCompare(b.name)
+          );
           return {
             ...state,
             myDogs: temp,
           };
         case "descendente":
-          const temp2 = state.myDogs.sort((a, b) => b.id - a.id);
+          const temp2 = state.myDogs.sort((a, b) =>
+            b.name.localeCompare(a.name)
+          );
           return {
             ...state,
             myDogs: temp2,
@@ -60,8 +64,8 @@ const reducer = (state = inicialState, action) => {
         case "maxpeso":
           const temp4 = state.myDogs.sort(
             (a, b) =>
-              Number(a.weight?.split(" - ")[1]) -
-              Number(b.weight?.split(" - ")[1])
+              Number(a.weight?.split(" - ")[0]) -
+              Number(b.weight?.split(" - ")[0])
           );
           return {
             ...state,
@@ -70,17 +74,20 @@ const reducer = (state = inicialState, action) => {
         case "minpeso":
           const temp5 = state.myDogs.sort(
             (a, b) =>
-              Number(b.weight?.split(" - ")[1]) -
-              Number(a.weight?.split(" - ")[1])
+              Number(a.weight?.split(" - ")[1]) -
+              Number(b.weight?.split(" - ")[1])
           );
           return {
             ...state,
             myDogs: temp5,
           };
         default:
+          const temp6 = state.myDogs.sort(
+            (a, b) => Number(a.id) - Number(b.id)
+          );
           return {
             ...state,
-            myDogs: state.myDogs,
+            myDogs: temp6,
           };
       }
 

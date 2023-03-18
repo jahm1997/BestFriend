@@ -48,7 +48,7 @@ function Home() {
     const final = inicio * perrosEnPantalla
     const comienzo = final - perrosEnPantalla
     var current = myDogs.slice(comienzo,final)
-
+    console.log(current)
     return (
       <div className={styled.contenedor} >
         <div className={styled.menu} >

@@ -11,12 +11,17 @@ function Filter() {
 
   const [propiedad,setPropiedad] = React.useState("")
   const [valor,setValor] = React.useState("")
+  // const [boton,setBoton] = React.useState(false)
 
   const handleOrder = (e) => {
-
+    // if(e.target.value === "maxpeso" || e.target.value === "minpeso"){
+    //   setBoton(true)
+    // }
+    
     dispatch(orderCards(e.target.value))
     
   }
+ 
 
   const handleFilter = (evento) => {
     setPropiedad(evento.target.value)
@@ -47,10 +52,12 @@ function Filter() {
                 <option value="descendente">Z to A</option>
                 <option value="" disabled>--By weight--</option>
                 <option value="maxpeso">max Weight</option>
+                {/* {boton && <option value="maximo" >funciona</option>}
+                {boton && <option value="maximo" >funciona</option>} */}
                 <option value="minpeso">Min Weight</option>
               </select>
               <select className={style.espaciado} onChange={handleFilter}>
-                <option value="" >Busqueda Por</option>
+                <option value=""  >Busqueda Por</option>
                 <option value="name">Raza</option>
                 <option value="weight">Peso</option>
                 <option value="height">Estatura</option>
