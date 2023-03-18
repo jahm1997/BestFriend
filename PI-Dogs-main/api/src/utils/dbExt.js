@@ -1,8 +1,7 @@
 const axios = require("axios");
 
 const perros = axios("https://api.thedogapi.com/v1/breeds/");
-console.log(perros);
-const apiDogs = perros.data.map(char => {
+const apiDogs = perros.data.map((char) => {
   return {
     id: char.id,
     name: char.name,

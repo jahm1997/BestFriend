@@ -1,10 +1,10 @@
 .menu{
-    height: 80px; 
+    height: 90px; 
     width: 100%;
     background-image: url("../imagenes/nav_Joseph.png");
     /* border: 10px solid pink; */
     display:inline-flex;
-    border-bottom: 0.5px solid red;
+    border-bottom: 1px solid white;
 
 }
 
@@ -13,9 +13,9 @@
 
     width: 130px;
     border-radius: 15px;
-    margin-top: 4px;
-    margin-left: 4px;
-    border: 2px solid white;
+    margin-top: 10px;
+    margin-left: 10px;
+    /* border: 2px solid red; */
 
 }
 
@@ -23,16 +23,16 @@
     width: 105px;
     margin-left: 100px;
     border-radius: 15px;
-    margin-top: 2px;
-    border: 2px solid white;
+    margin-top: 10px;
+    /* border: 2px solid white; */
 }
 
-.bestFriend a img {
+.crearDog a img {
     width: 114px;
     margin-left: 20px;
     border-radius: 15px;
-    margin-top: 2px;
-    border: 2px solid white;
+    margin-top: 10px;
+    /* border: 2px solid white; */
 }
 
 

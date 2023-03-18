@@ -16,8 +16,8 @@ function Dog () {
     const dispatch = useDispatch()
    
     const {id} = useParams()
-    const perro = useSelector(state=>state.dog)
-    const dog = perro[0]
+    const {dog} = useSelector(state=>state)
+    
     
     useEffect(
         ()=>{
@@ -26,7 +26,7 @@ function Dog () {
         },[dispatch]
       )
       
-    if(!perro.length){
+    if(!dog.length){
         return (
             <div className={style.cargandoDiv}>
                 <img className={style.cargando} src={cargando} alt="CargandoPagina" />
@@ -41,16 +41,16 @@ function Dog () {
 
                 <div className={style.container}>
                     <div className={style.containerInt} >
-                        <h3>Name: {dog.name}</h3>
-                        <h3>Peso: {dog.weight}</h3>
-                        <h3>Alto: {dog.height}</h3>
-                        <h3>Años de vida : {dog.life_span}</h3>
-                        <h3>temperamentos: {dog.temperament}</h3>
+                        <h3>Name: {dog[0].name}</h3>
+                        <h3>Peso: {dog[0].weight}</h3>
+                        <h3>Alto: {dog[0].height}</h3>
+                        <h3>Años de vida : {dog[0].life_span}</h3>
+                        <h3>temperamentos: {dog[0].temperament}</h3>
                     </div>
                 </div> 
                 <div className={style.containerImg} > 
-                    <div >
-                        <img className={style.imagen} src={dog.image} alt={dog.name} />
+                    <div  > 
+                        <img className={style.imagen} src={dog[0].image} alt={dog[0].name} />
                     </div>
                 </div>
             </div>

@@ -34,15 +34,10 @@ export const getDog = (id) => async (dispatch) => {
 
 export const getAllTemps = () => async (dispatch) => {
   try {
-    const responseToForm = {};
     const response = await Axios.get("http://localhost:3001/temperaments");
     const temps = response.data;
-    let array = temps.map((ele) => {
-      return (responseToForm[ele] = false);
-    });
-    return dispatch({ type: GET_TEMPS, payload: responseToForm });
+    return dispatch({ type: GET_TEMPS, payload: temps });
   } catch (error) {
-    console.log(error + " Se ejecutó en la linea 41 de actions");
     return dispatch({ type: ERROR, payload: error });
   }
 };

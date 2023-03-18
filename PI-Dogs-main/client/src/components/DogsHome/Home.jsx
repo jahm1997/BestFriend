@@ -6,12 +6,11 @@ import { useDispatch, useSelector } from "react-redux"
 import { getAllDogs, getAllTemps } from "../redux/actions"
 
 import Dogs from "../Dogs/Dogs"
-import Pagination from "../pagination/pagination";
-import cargando from "../imagenes/cargando2.jpg"
 import Navbar from "../Navbar/Navbar";
+import cargando from "../imagenes/cargando2.jpg"
+import Pagination from "../pagination/pagination";
 
 function Home() {
-  console.log("Se ejecutó Home");
   
   const {myDogs} = useSelector(state => state);
 

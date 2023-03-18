@@ -10,7 +10,7 @@ import {
 const inicialState = {
   myDogs: [],
   error: {},
-  dog: [],
+  dog: {},
   temperamentos: [],
 };
 
@@ -28,11 +28,10 @@ const reducer = (state = inicialState, action) => {
     case GET_DOG:
       return {
         ...state,
-        dog: [...state.dog, ...action.payload],
+        dog: action.payload,
       };
 
     case FILTER:
-      console.log(action.payload);
       return {
         ...state,
         myDogs: action.payload,
@@ -59,10 +58,6 @@ const reducer = (state = inicialState, action) => {
             myDogs: temp3,
           };
         case "maxpeso":
-          console.log(
-            "Esto es en la linea 70 de reducer---",
-            state.myDogs[1].weight?.split(" - ")
-          );
           const temp4 = state.myDogs.sort(
             (a, b) =>
               Number(a.weight?.split(" - ")[1]) -
@@ -73,10 +68,6 @@ const reducer = (state = inicialState, action) => {
             myDogs: temp4,
           };
         case "minpeso":
-          console.log(
-            "Esto es en la linea 70 de reducer---",
-            state.myDogs[0].weight?.split(" - ")[0]
-          );
           const temp5 = state.myDogs.sort(
             (a, b) =>
               Number(b.weight?.split(" - ")[1]) -
@@ -113,9 +104,6 @@ const reducer = (state = inicialState, action) => {
     //   };
 
     default:
-      console.log(action.type);
-      console.log(action.payload);
-      console.log("hubo un erro y se activo line 74 del archivo actions.js");
       return { ...state };
   }
 };

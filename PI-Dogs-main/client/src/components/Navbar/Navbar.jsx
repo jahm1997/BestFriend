@@ -1,9 +1,9 @@
-import style from "./Navbar.module.css";
-import logoTipo from "../imagenes/logoTipo_dogs_modified.png"
-import CrearDog from "../imagenes/createDog.jpg"
-import homePage from "../imagenes/homePage.jpg"
 import Filter from "../Filters/Filter"
+import style from "./Navbar.module.css";
 import { useLocation } from "react-router-dom";
+import homePage from "../imagenes/homePage.jpg"
+import CrearDog from "../imagenes/createDog.jpg"
+import logoTipo from "../imagenes/logoTipo_dogs_modified.png"
 
 const Navbar = () => {
   const location = useLocation()
@@ -25,7 +25,7 @@ const Navbar = () => {
               </a>
           </div>
 
-          <div className={style.bestFriend} >
+          <div className={style.crearDog} >
               <a href="/dogs/add">
                 <img src={CrearDog} alt={CrearDog} />
               </a>

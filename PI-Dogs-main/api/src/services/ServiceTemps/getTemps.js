@@ -5,7 +5,6 @@ const captureTemps = require("../../controllers/captureTemps");
 // FUNCION QUE TRAE TODOS LOS TEMPERAMENTOS
 
 const getTemperaments = async (req, res) => {
-  console.log("-----Se ejecutó getTemps.js------");
   const dbTemperaments = await Temperaments.findAll();
   const response = await axios.get("https://api.thedogapi.com/v1/breeds");
   const data = response.data;

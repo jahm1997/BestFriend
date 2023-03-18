@@ -1,7 +1,6 @@
 const { Temperaments } = require("../db");
 
 const tempsCapture = (dataBase, data) => {
-  console.log("...Se ejecutó tempsCapture");
   if (!dataBase.length) {
     const temperaments = data.reduce((acc, dog) => {
       if (dog.temperament) {
@@ -13,12 +12,12 @@ const tempsCapture = (dataBase, data) => {
     }, []);
 
     const uniqueTemperaments = [...new Set(temperaments)];
-    Temperaments.bulkCreate(uniqueTemperaments.map(t => ({ name: t })));
+    Temperaments.bulkCreate(uniqueTemperaments.map((t) => ({ name: t })));
 
     // Insertar los temperamentos en la base de datos
     return uniqueTemperaments;
   } else {
-    return dataBase.map(t => t.name);
+    return dataBase.map((t) => t.name);
   }
 };
 

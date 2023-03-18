@@ -1,5 +1,4 @@
 const captureById = (dogs, data, id) => {
-  console.log("llegó aqui linea 2");
   const perrosApi = data.map((elemento) => {
     return {
       id: elemento.id,

@@ -24,7 +24,7 @@
 .list ul li p{
     font-weight: 500;
     margin: 2px;
-    padding: 8px;
+    padding: 5px;
     width: auto;
     font-family: fantasy ;
     /* background-image: url("../imagenes/botonhuesitos.png"); */
@@ -49,10 +49,27 @@
 }   }
 
 
-.listToImagen {
+.listToImagenUno {
     margin-left: 30px;
     margin-right: 30px;
     width: 50px;
-    transform :rotate(45deg);
     
+}
+
+.listToImagenUno img{
+    position: absolute;
+    width: 50px;
+
+}
+
+.listToImagenDos {
+    margin-left: 30px;
+    margin-right: 30px;
+    width: 50px;
+    
+}
+
+.listToImagenDos img{
+    position: absolute;
+    width: 50px;
 }

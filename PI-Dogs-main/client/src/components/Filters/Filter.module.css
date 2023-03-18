@@ -3,18 +3,17 @@
     grid-column: 2/3;
     grid-row: 2/3;
     text-align: center;
-    width: 650px;
+    width: 740px;
     display: inline-flex;
-    justify-content:start;
-    margin-top: 3%;
-    margin-left: 180px;
+    margin-top: 30px;
+    margin-left: 70px;
     /* border: 2px solid white */
 
     
 }
 
 .filters select, button{
-    border: 3px solid blue;
+    border: 3px solid white;
     padding: 6px 14px;
     /* margin-left: 10px; */
     border-radius: 10px;
@@ -29,4 +28,8 @@
     border-radius: 10px;
     font-size: 0.8rem;
     text-align: center;
+}
+
+.espaciado{
+    margin-left: 15px;
 }

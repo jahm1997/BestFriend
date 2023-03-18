@@ -1,87 +1,31 @@
-import { useEffect, useState } from "react";
-import Navbar from "../Navbar/Navbar";
-import style from "./Form.module.css";
-import validateForm from "./validateForm"
-import { getAllTemps, postdog } from "../redux/actions";
-import { useNavigate } from "react-router-dom";
-import CrearDog from "../imagenes/botonregistromodificado.jpg"
-import imagen2 from "../imagenes/BotonPerrito.jpeg"
-
 import video from "../videos/videoPerritos.mp4"
+import style from "./Form.module.css";
+import Navbar from "../Navbar/Navbar";
+import imagen2 from "../imagenes/BotonPerrito.jpeg"
+import CrearDog from "../imagenes/botonregistromodificado.jpg"
+import validateForm from "./validateForm"
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { getAllTemps, postdog } from "../redux/actions";
 
 const Form = () => {
   const traslado = useNavigate()
   const dispatch = useDispatch()
   
+  //------------------------------ESTADOS------------------------------------------------
+  
   const { temperamentos } = useSelector(state => state)
   const [temp, setTemp] = useState(false)
   const [boton,setBoton] = useState(true)
-  const [arrayResponse,setArrayResponse] = useState([])
-  const arrayTemps = Object.keys(temp)
-
-  //------------------------------BOTONCHECKBOX----------------------------------------------
   
-  
-  const handleTypesClick = () => {
-    if(temp === false){
-      setTemp(temperamentos)
-    }else{
-      temp?setTemp(!temperamentos):setTemp(temperamentos)
-    }
-    boton === false?setBoton(true):setBoton(false)
-    seteoArray()
-   
-  };
-  console.log(temp)
-  console.log(arrayResponse)
-
-  function seteoArray(){
-    let resultado= []
-    if(typeof temp === "object" && temp !== false ){
-      for (const iterator in temp) {
-          if(temp[iterator] === true){
-            resultado.push(iterator)
-          }
-        }
-      setArrayResponse(resultado)
-    }
-  }
-  
-  const handleTypeChange = (event) => {
-    const { name, checked,} = event.target;
-
-
-    console.log(typeof value);
-    let acumulador = 0
-    for (const key in temp) {
-        if(temp[key]===true){
-          acumulador++
-        }
-    }
-    if(acumulador > 5){
-      alert("Solo se pueden añadir 5 temperamentos")
-    }else{
-      setTemp({
-        ...temp,
-        [name]: checked,
-      });
-    }
-    
-  };
-
-  const handleTypesFilter = () =>{
-    setTemp(temperamentos)
-  }
-
-  
-//------------------------------FORMULARIO------------------------------------------------
   const [dog, setDog] = useState({
     name: "",
     weightUno: "",
     weightDos: "",
     heightUno: "",
     heightDos: "",
+    temperamentos: [],
     life_span: "",
     image: ""
   })
@@ -91,10 +35,49 @@ const Form = () => {
     weightDos: "",
     heightUno: "",
     heightDos: "",
+    temperamentos: [],
     life_span: "",
     image: ""
   })
+  
+  //------------------------------BOTONCHECKBOX----------------------------------------------
+  const handleTypesClick = () => {
+    if(temp === false){
+      setTemp(temperamentos)
+    }else{
+      setTemp(!temperamentos)
+    }
+    boton === false?setBoton(true):setBoton(false)
+  }
 
+  const handleTypeChange = (event) => {
+    const { value, checked } = event.target;
+
+      if(!dog.temperamentos[value]){
+        if(checked){
+          setDog({
+            ...dog,
+            temperamentos:[...dog.temperamentos, value]
+          })
+        }else{
+          let filter = dog.temperamentos.filter(ele=> ele !== value)
+          setDog({
+          ...dog,
+          temperamentos:filter
+          })
+        }
+      }
+  };
+
+  const handleTypesFilter = () =>{
+    setDog({
+      ...dog,
+      temperamentos:[]
+    })
+  }
+
+  //------------------------------FORMULARIO---------------------------------------------
+ 
   const handleInputChange = (eve) => {
     setDog({
       ...dog,
@@ -107,19 +90,34 @@ const Form = () => {
       })
     )
   }
-
+  
   const handleSubmit = (event) => {
     event.preventDefault()
-    
-    postdog(dog)
-    alert("haz creado una nueva raza! :D")
-    traslado("/")
-  }
+    if(dog.temperamentos.length < 2){
+      setDog({
+        ...dog,
+        temperamentos:[]
+      })
+      return alert("Por favor ingresemos mas de 2 temperamentos")
+    }
+    else if(dog.temperamentos.length > 6){
+      setDog({
+        ...dog,
+        temperamentos:[]
+      })
+      return alert("No puede tener mas de 6 temperamentos")
+    }
 
+      postdog(dog)
+      alert("haz creado una nueva raza! :D")
+      traslado("/")
+
+  }
+  
   useEffect(() => {
     dispatch(getAllTemps())
   }, [dispatch])
-
+  
   return (
     <div className={style.divContenedor} >
 
@@ -127,18 +125,15 @@ const Form = () => {
         <Navbar />
       </div>
 
-      <div className={style.botonPerrito}>
-        <div className={style.videoext} >
+      <div className={style.contenedorPerrito}>
           <img src={imagen2} width="200px" alt="BotonPerrito" />
           <div className={style.videoint} >
-            <video width="750px" controls autoPlay loop >
+            <video className={style.videoint} width="750px" controls autoPlay loop >
               <source src={video} type="video/mp4" />
             </video>
-          </div>
         </div>
 
       </div>
-
       <div className={style.formularioExt}>
         <div className={style.formularioint} >
           <form onSubmit={handleSubmit} >
@@ -146,32 +141,37 @@ const Form = () => {
             <div className={style.label} >
               <label htmlFor="name"> Nombre </label>
               <input className={style.input} type="text" name="name" placeholder="ingrese el nombre" value={dog.name} onChange={handleInputChange} />
-              {/* // en este espacio colocamos los errores que lanza si no se introduce username correcto */}
               {errors.name && <p className={style.error}> {errors.name}</p>}
             </div>
 
             <div className={style.HWeight} >
-              <label htmlFor="weightUno"> Peso Del perro</label>
+              <label htmlFor="weight"> Peso Del perro</label>
+
               <input className={style.inputHWeightUno} type="text" name="weightUno" placeholder="min" value={dog.weightUno} onChange={handleInputChange} />
-              {errors.weightUno && <p className={style.error}> {errors.weightUno}</p>}
 
               <input className={style.inputHWeightDos} type="text" name="weightDos" placeholder="max" value={dog.weightDos} onChange={handleInputChange} />
-              {errors.weightDos && <p className={style.error}> {errors.weightDos}</p>}
+
+              {errors.weightUno?<p className={style.errorPartidos}> {errors.weightUno}</p>:errors.weightDos && <p className={style.errorPartidos}> {errors.weightDos}</p>}  
             </div>
 
             <div className={style.HWeight} >
               <label htmlFor="heightUno"> Altura del perro </label>
               <input className={style.inputHWeightDos} type="text" name="heightUno" placeholder="min" value={dog.heightUno} onChange={handleInputChange} />
-              {errors.heightUno && <p className={style.error}> {errors.heightUno}</p>}
 
               <input className={style.inputHWeightDos} type="text" name="heightDos" placeholder="max" value={dog.heightDos} onChange={handleInputChange} />
-              {errors.heightDos && <p className={style.error}> {errors.heightDos}</p>}
             </div>
+            {errors.heightUno?<p className={style.errorPartidos}> {errors.heightUno}</p>:errors.heightDos && <p className={style.errorPartidos}> {errors.heightDos}</p>} 
 
             <div>
               <label htmlFor="life_span"  > Años de vida </label>
               <input className={style.input} type="text" name="life_span" placeholder="años de vida" value={dog.life_span} onChange={handleInputChange} />
               {errors.life_span && <p className={style.error}> {errors.life_span}</p>}
+            </div>
+
+            <div>
+              <label htmlFor="image"  > Imagen del Perro </label>
+              <input className={style.input} type="text" name="image" placeholder="Deja aquí la Url" value={dog.image} onChange={handleInputChange} />
+              {errors.image && <p className={style.error}> {errors.image}</p>}
             </div>
           </form>
 
@@ -185,13 +185,14 @@ const Form = () => {
                   Clean Filters
                 </button>
               </div>
+
               <div>
               {temp && (
                 <div className={style.filter__types}>
                   {
-                    arrayTemps.map(ele=>(
+                    temperamentos.map(ele=>(
                       <label htmlFor={ele} key={ele}>
-                        <input type="checkbox" onChange={handleTypeChange} />
+                        <input type="checkbox" value={ele}  onChange={handleTypeChange} />
                         {ele}
                       </label>
                     ))
@@ -199,14 +200,12 @@ const Form = () => {
                 </div>)}
               </div>
           </div>
-  
-          <div>
-            {boton == true && 
-            <button type="submit" className={style.botonRegistrar} >
-              <img src={CrearDog} alt="imagen huesito del boton registrar" />
-            </button>
 
-            }
+          <div>
+            {boton === true && 
+            <button type="submit" className={style.botonRegistrar} >
+              <img src={CrearDog} onClick={handleSubmit}  alt="imagen huesito del boton registrar" />
+            </button>}
           </div>
         </div>
       </div>

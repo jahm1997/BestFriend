@@ -1,6 +1,6 @@
 .container{
     /* background-image: url("../../prueba3.jpeg"); */
-    position: relative ;
+    position: block;
     border: 5px solid;
     /* border-color: #e0b455; */
     border-color: blue;
@@ -11,7 +11,8 @@
     
     height: 23rem;
     line-height: 120%;
-    margin: 5% 5%;
+    font-style: none;
+    color: black;
 }
 .container:hover{
     -webkit-transform:scale(1.1);
