@@ -111,7 +111,7 @@ const Form = () => {
 
       postdog(dog)
       alert("haz creado una nueva raza! :D")
-      traslado(`/dogs/${myDogs[myDogs.length-1].id}`)
+      traslado(`/dogs/${myDogs[myDogs.length-1].id+1}`)
   }
   
   useEffect(() => {

@@ -7,10 +7,11 @@ import move2 from "../imagenes/paginas2.jpeg"
 const Pagination = ({ totalPerros, perrosEnPantalla, paginate, delante, atras }) => {
   const numeroPaginas = [];
 
+
   for (let i = 1; i <= Math.ceil(totalPerros / perrosEnPantalla); i++) {
     numeroPaginas.push(i);
   }
-
+  
   return (
     <div className={style.list}>
       <ul>
@@ -23,8 +24,10 @@ const Pagination = ({ totalPerros, perrosEnPantalla, paginate, delante, atras })
         {numeroPaginas.map(number => (
           <li key={number} className={style.listCentral} >
             <Link>
-              <p onClick={() => paginate(number)}>
-                {number }🐶
+              <p onClick={() => {
+                paginate(number)
+              }}>
+                {number}🐶
               </p>
             </Link> 
           </li>

@@ -1,6 +1,6 @@
 const { Dog } = require("../../db");
 const axios = require("axios");
-const captureDogs = require("../../controllers/captureDogs");
+const captureDogs = require("../../controllers/captureDogs.js");
 
 const todos = async (req, res) => {
   const { name, limit } = req.query;

@@ -7,8 +7,6 @@ const router = Router();
 
 //aqui van los CRUD del enlace registro
 
-// router.get("/", getDogByName);
-
 router.get("/", getAllDogs);
 
 router.get("/:id", getDogById);

@@ -49,6 +49,11 @@ function Home() {
     const comienzo = final - perrosEnPantalla
     var current = myDogs.slice(comienzo,final)
     console.log(current)
+    console.log(comienzo)
+    console.log(final)
+    if(!current.length){
+      setInicio(inicio-1)
+    }
     return (
       <div className={styled.contenedor} >
         <div className={styled.menu} >
