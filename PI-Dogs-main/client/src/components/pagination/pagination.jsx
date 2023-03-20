@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import move from "../imagenes/paginas.jpg"
+import move from "../imagenes/botonIzquierda.png"
 import style from "./Pagination.module.css"
-import move2 from "../imagenes/paginas2.jpeg"
+import move2 from "../imagenes/botonDerecha.png"
 
 const Pagination = ({ totalPerros, perrosEnPantalla, paginate, delante, atras }) => {
   const numeroPaginas = [];

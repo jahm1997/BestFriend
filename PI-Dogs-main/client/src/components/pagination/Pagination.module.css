@@ -61,8 +61,8 @@
     position: absolute;
     width: 100px;
     /* border: 2px solid red; */
-    top: 930px;
-    left: 1px;
+    top: 1000px;
+    left: 550px;
 
 }
 
@@ -88,8 +88,8 @@
     position: absolute;
     width: 100px;
     /* border: 2px solid red; */
-    top: 930px;
-    right: 1px;
+    top: 1000px;
+    right: 550px;
 }
 
 .listToImagenDos img:Hover{

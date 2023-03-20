@@ -2,7 +2,7 @@ import video from "../videos/videoPerritos.mp4"
 import style from "./Form.module.css";
 import Navbar from "../Navbar/Navbar";
 import imagen2 from "../imagenes/BotonPerrito.jpeg"
-import CrearDog from "../imagenes/botonregistromodificado.jpg"
+import CrearDog from "../imagenes/botonNuevoPerro.png"
 import validateForm from "./validateForm"
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";

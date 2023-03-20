@@ -155,7 +155,7 @@ label{
 
 .botonRegistrar{
     /* background-image: url("../imagenes/botonhuesitos.png") ;  */
-    filter:brightness(1);
+    filter:brightness(1.1);
     mix-blend-mode: multiply ;
     background-position: center;
     background-repeat: no-repeat;
@@ -163,17 +163,15 @@ label{
     height: 80px;
     /* margin-top: 200px; */
     bottom: 60px;
-    margin-left: 55px;
-    
-
+    margin-left: 45px;
     position: absolute
     
 }
 
 .botonRegistrar img{
     /* position: absolute; */
-    width: 120px;
-    border: 2px solid red;
+    width: 150px;
+    /* border: 2px solid red; */
 }
 
 @media (prefers-reduced-motion: no-preference) {
