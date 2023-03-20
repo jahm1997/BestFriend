@@ -4,6 +4,7 @@ import { Link } from "react-router-dom"
 import Boton from "../imagenes/BotonPerrito.jpeg"
 
 const Bienvenido = () => {
+    
 return (
     <div className={styled.divImagen}> 
             <div className={styled.divBoton} >
