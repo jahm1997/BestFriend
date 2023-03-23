@@ -1,8 +1,8 @@
 const axios = require("axios");
-const captureById = require("../../controllers/captureById");
-const { Dog } = require("../../db");
+const captureById = require("../controllers/captureById");
+const { Dog } = require("../db");
 
-const getDogById = async (req, res) => {
+exports.getDogById = async (req, res) => {
   const perros = await axios.get("https://api.thedogapi.com/v1/breeds");
   const dataApi = perros.data;
   const dogs = await Dog.findAll();
@@ -16,5 +16,3 @@ const getDogById = async (req, res) => {
     res.status(400).end({ err: err.message });
   }
 };
-
-module.exports = getDogById;

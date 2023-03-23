@@ -108,10 +108,11 @@ const Form = () => {
       })
       return alert("No puede tener mas de 6 temperamentos")
     }
-
-      postdog(dog)
-      alert("haz creado una nueva raza! :D")
-      traslado(`/dogs/${myDogs[myDogs.length-1].id+1}`)
+   
+    postdog(dog)
+    alert("haz creado una nueva raza! :D")
+    traslado(`/dogs/${myDogs[myDogs.length-1].id+1}`)
+  
   }
   
   useEffect(() => {

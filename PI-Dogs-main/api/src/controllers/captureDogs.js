@@ -1,4 +1,5 @@
 const Dogscapture = (dogs, data, name) => {
+  // const addtoDB = dogs.bulkCreate(perrosApi);
   const perrosApi = data.map((elemento) => {
     return {
       id: elemento.id,

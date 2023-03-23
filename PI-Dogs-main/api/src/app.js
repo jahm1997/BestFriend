@@ -2,7 +2,8 @@ const express = require("express");
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
-const routes = require("./routes/index.js");
+const dogs = require("./routes/dogRouter.js");
+const temperamets = require("./routes/tempRouter.js");
 
 require("./db.js");
 
@@ -16,7 +17,7 @@ server.use(cookieParser());
 server.use(morgan("dev"));
 server.use((req, res, next) => {
   // res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
-  res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Credentials", "true");
   res.header(
     "Access-Control-Allow-Headers",
@@ -28,7 +29,8 @@ server.use((req, res, next) => {
 
 //suponemos que estamos parados en la url:
 //http:localhost:3001/, esta barra es la abajo
-server.use("/", routes);
+server.use("/dogs", dogs);
+server.use("/temperaments", temperamets);
 
 // Error catching endware.
 server.use((err, req, res, next) => {

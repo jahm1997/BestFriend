@@ -1,8 +1,8 @@
-const { Dog } = require("../../db");
+const { Dog } = require("../db");
 const axios = require("axios");
-const captureDogs = require("../../controllers/captureDogs.js");
+const captureDogs = require("../controllers/captureDogs.js");
 
-const todos = async (req, res) => {
+exports.todos = async (req, res) => {
   const { name, limit } = req.query;
 
   const perros = await axios.get("https://api.thedogapi.com/v1/breeds");
@@ -14,17 +14,16 @@ const todos = async (req, res) => {
   try {
     if (limit) {
       const dataBase = captureDogs(dogsdos, dataApi);
-      res.status(200).send(dataBase.slice(0, Number(limit)));
+      return res.status(200).send(dataBase.slice(0, Number(limit)));
     } else if (name) {
       const database = captureDogs(dogsdos, dataApi, name);
-      res.status(200).send(database);
+      return res.status(200).send(database);
     } else {
       const dataBase = captureDogs(dogsdos, dataApi);
-      res.status(200).send(dataBase);
+      return res.status(200).send(dataBase);
     }
   } catch (err) {
-    res.status(400).end({ err: err.message });
+    console.log(err, "Este es el error en la linea 26");
+    return res.status(400).end({ err: err.message });
   }
 };
-
-module.exports = todos;

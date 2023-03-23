@@ -1,7 +1,7 @@
 const axios = require("axios");
-const addDog = require("../../controllers/añadirDogs");
+const addDog = require("../controllers/añadirDogs");
 
-const sumar = async (req, res) => {
+exports.sumar = async (req, res) => {
   const body = req.body;
   const response = await axios.get("http://localhost:3001/dogs");
   const id = response.data[response.data.length - 1].id + 1;
@@ -17,5 +17,3 @@ const sumar = async (req, res) => {
     res.status(400).end({ err: err.message });
   }
 };
-
-module.exports = sumar;

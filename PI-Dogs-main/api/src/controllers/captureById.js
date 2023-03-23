@@ -1,4 +1,4 @@
-const captureById = (dogs, data, id) => {
+const captureById = (dogs, id, data) => {
   const perrosApi = data.map((elemento) => {
     return {
       id: elemento.id,

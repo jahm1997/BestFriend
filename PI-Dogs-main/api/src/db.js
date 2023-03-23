@@ -2,17 +2,23 @@ require("dotenv").config();
 const { Sequelize } = require("sequelize");
 const fs = require("fs");
 const path = require("path");
-const { log } = require("console");
-const { DB_USER, DB_PASSWORD, DB_HOST, DB_DEPLOY } = process.env;
+const { DB_USER, DB_PASSWORD, DB_HOST, DB_DEPLOY, DB_NAME, PORT } = process.env;
 
 const sequelize = new Sequelize(
-  `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/dogs`,
+  `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${PORT}/${DB_NAME}`,
   // DB_DEPLOY,
   {
     logging: false, // set to console.log to see the raw SQL queries
     native: false, // lets Sequelize know we can use pg-native for ~30% more speed
   }
 );
+
+// const sequelize = new Sequelize("dogs_su0k", DB_USER, DB_PASSWORD, {
+//   host: DB_HOST,
+//   dialect: "postgres",
+//   logging: false,
+// });
+
 const basename = path.basename(__filename);
 
 const modelDefiners = [];
@@ -40,7 +46,7 @@ sequelize.models = Object.fromEntries(capsEntries);
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
 const { Dog, Temperaments } = sequelize.models;
-console.log(entries);
+// console.log(entries);
 // console.log(capsEntries);
 // console.log(sequelize.models);
 // console.log(Dog, Temperaments);

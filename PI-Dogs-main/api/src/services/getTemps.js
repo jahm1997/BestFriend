@@ -1,6 +1,6 @@
-const { Temperaments } = require("../../db");
+const { Temperaments } = require("../db");
 const axios = require("axios");
-const captureTemps = require("../../controllers/captureTemps");
+const captureTemps = require("../controllers/captureTemps");
 
 // FUNCION QUE TRAE TODOS LOS TEMPERAMENTOS
 
