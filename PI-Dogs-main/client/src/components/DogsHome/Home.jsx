@@ -48,9 +48,7 @@ function Home() {
     const final = inicio * perrosEnPantalla
     const comienzo = final - perrosEnPantalla
     var current = myDogs.slice(comienzo,final)
-    console.log(current)
-    console.log(comienzo)
-    console.log(final)
+
     if(!current.length){
       setInicio(inicio-1)
     }
