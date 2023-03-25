@@ -114,7 +114,8 @@ const Form = () => {
     traslado(`/dogs/${myDogs[myDogs.length-1].id+1}`)
   
   }
-  
+  console.log(myDogs)
+  console.log(temperamentos)
   useEffect(() => {
     dispatch(getAllDogs())
     dispatch(getAllTemps())

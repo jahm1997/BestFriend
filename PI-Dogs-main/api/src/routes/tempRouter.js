@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const getTemps = require("../services/getTemps");
+const { getTemperaments } = require("../services/getTemps");
 // const dogInformation = require("./dogInformation");
 
 const router = Router();
@@ -8,6 +8,6 @@ const router = Router();
 
 // router.get("/", getDogByName);
 
-router.use("/", getTemps);
+router.use("/", getTemperaments);
 
 module.exports = router;

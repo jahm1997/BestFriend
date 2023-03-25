@@ -1,6 +1,6 @@
+const { Dog } = require("../db");
 const axios = require("axios");
 const captureById = require("../controllers/captureById");
-const { Dog } = require("../db");
 
 exports.getDogById = async (req, res) => {
   const perros = await axios.get("https://api.thedogapi.com/v1/breeds");

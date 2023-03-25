@@ -42,9 +42,10 @@ export const getDog = (id) => async (dispatch) => {
 export const getAllTemps = () => async (dispatch) => {
   try {
     const response = await axios.get(
-      "https://api-production-8578.up.railway.app/dogs"
+      "https://api-production-8578.up.railway.app/temperaments"
     );
     const temps = response.data;
+    console.log(temps);
     return dispatch({ type: GET_TEMPS, payload: temps });
   } catch (error) {
     return dispatch({ type: ERROR, payload: error });
