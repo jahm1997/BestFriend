@@ -23,36 +23,12 @@ const Pagination = ({ totalPerros, perrosEnPantalla, paginate, delante, atras, i
             <img  src={move} alt={move} onClick={()=>atras()} />
           </Link> 
         </li>
-
-        {/* {numeroPaginas.map(number => (
-          <li key={number} className={style.listCentral} >
-            <Link>
-              <p onClick={() => {
-                paginate(number)
-              }}>
-                {number}🐶
-              </p>
-            </Link> 
-          </li>
-        ))} */}
         
-        
-        {/* <li>
-          <Link>
-            <p onClick={() => {paginate(numeroPaginas[inicio-1])}}>{numeroPaginas[inicio-1]}</p>
-          </Link>
-        </li> */}
         <li>
           <Link>
-            <p onClick={() => {paginate(numeroPaginas[inicio])}}>{numeroPaginas[inicio]}</p>
+            <p><p onClick={() => {paginate(numeroPaginas[inicio])}}>{numeroPaginas[inicio]}</p> de {numeroPaginas.length}</p>
           </Link>
-        </li>
-        <li>
-          <Link>
-            <p onClick={() => {paginate(numeroPaginas[inicio+1])}}>{numeroPaginas[inicio+1]}</p>
-          </Link>
-        </li>
-        
+        </li>       
         
         <li className={style.listToImagenDos}>
           <Link>
