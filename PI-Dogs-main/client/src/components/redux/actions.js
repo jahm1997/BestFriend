@@ -45,7 +45,6 @@ export const getAllTemps = () => async (dispatch) => {
       "https://api-production-8578.up.railway.app/temperaments"
     );
     const temps = response.data;
-    console.log(temps);
     return dispatch({ type: GET_TEMPS, payload: temps });
   } catch (error) {
     return dispatch({ type: ERROR, payload: error });

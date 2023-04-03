@@ -1,6 +1,7 @@
 const { Dog } = require("../db");
 
 const addDog = (newDog, id) => {
+  console.log("en el controllador de añadirperro,", newDog);
   Dog.create({
     id: id,
     name: newDog.name,

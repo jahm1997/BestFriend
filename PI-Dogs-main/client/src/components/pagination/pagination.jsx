@@ -26,7 +26,7 @@ const Pagination = ({ totalPerros, perrosEnPantalla, paginate, delante, atras, i
         
         <li>
           <Link>
-            <p><p onClick={() => {paginate(numeroPaginas[inicio])}}>{numeroPaginas[inicio]}</p> de {numeroPaginas.length}</p>
+            <p><p onClick={() => {paginate(numeroPaginas[inicio-1])}}>{numeroPaginas[inicio-1]}</p> de {numeroPaginas.length}</p>
           </Link>
         </li>       
         
